@@ -1,0 +1,1002 @@
+--------- beginning of main
+08-28 20:42:52.956  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:52.957  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:52.957  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:52.958  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:52.959  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:53.095 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:42:53.099  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:42:53.106 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:42:53.106  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:53.109 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:42:53.109 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:42:53.115  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 60
+08-28 20:42:53.122  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:53.189  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:42:54.062  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.062  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.063  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.063  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.064  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.064  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.066  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.066  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:42:54.135 27656 27656 D BoundBrokerSvc: onUnbind: Intent { act=com.google.android.gms.libs.gmscorelogger.service.START dat=chimera-action:/... xflg=0x4 cmp=com.google.android.gms/.chimera.PersistentDirectBootAwareApiService }
+08-28 20:42:54.221  1924  1945 D HeatmapThread: Updated plugType via uevent: 2
+08-28 20:42:54.224  1826  1923 E BatteryDump: !@new_battery_dump : 4268,0,1200,4189,94,348,342,362,348,0,351,362,0,Not-charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,147,v0002,0000,0000,00000000,0,0,0,0,696,4270,9398,990,0,
+08-28 20:42:54.224 16782 16782 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+08-28 20:42:54.225  1826  1826 I sehhealth-service: updateLrpSysfs: write: 351
+--------- beginning of system
+08-28 20:42:54.288  1061  1061 D io_stats: !@   8,0 r 80751493 2333303128 w 22438400 501190600 d 4077841 410037324 f 47013 378357 iot 9046164 0 th 0 0 0 pt 0 inp 0 0 650377.954
+08-28 20:42:54.289  1061  1061 D io_stats: !@ Write_top(KB): kworker/u17:0:/(28215) 20 vendor.samsung.:normal(1826) 8
+08-28 20:42:54.296 17111 17358 I ActivityManager: Changes in 10082 19 to 19, 128 to 0
+08-28 20:42:54.297 28812 28812 I PFW     : [5189:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:42:54.305  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:42:54.313  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:54.314 17111 20121 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:42:54.315 17111 20121 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:42:54.608 17111 17211 E Watchdog: !@Sync: 8441 heap(MB): 170 / 214 FD: 1569 Threads: 597 [2026-08-28 20:42:54.608]
+08-28 20:42:54.761 23907 23907 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-s' 'ACN_AI''
+08-28 20:42:55.096 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:42:55.103  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:42:55.105 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:42:55.106 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:42:55.106 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:42:55.111  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:55.183  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:42:55.569  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:42:55.570  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:42:56.290  1061  1061 D io_stats: !@   8,0 r 80751493 2333303128 w 22438406 501190624 d 4077841 410037324 f 47013 378357 iot 9046168 0 th 0 0 0 pt 0 inp 0 0 650379.955
+08-28 20:42:57.198 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:42:57.199 17111 17586 D SemCellularStateManager: onSignalStrengthsChanged: mCellularSignalLevel=0
+08-28 20:42:57.200 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:42:57.200 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2)
+08-28 20:42:57.200 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) lastNotifiedSignalStrength level: 0
+08-28 20:42:57.200 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) currSignalStrength level: 0
+08-28 20:42:57.201 17111 20121 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:42:57.202 17111 20121 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:42:57.202 17111 20121 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:42:57.202 17111 20121 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:42:57.202 18143 18275 D MobileSignalTransitionManager: updateSignalTransition
+08-28 20:42:57.202 17111 20121 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:42:57.204 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:42:57.209  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:42:57.217  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:57.223 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:42:57.225 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:42:57.225 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:42:57.234  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 40
+08-28 20:42:57.242  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:42:57.306  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:42:58.055  1785 19032 I sensors-hal: handle_sns_client_event:202, auto_rotation_debug_2 mode,255, type,1,0 acc,-0.144,8.528,4.987, ar,0, ver,15, pedo,1,e,1,i,3
+08-28 20:42:58.291  1061  1061 D io_stats: !@   8,0 r 80751493 2333303128 w 22438409 501190644 d 4077841 410037324 f 47013 378357 iot 9046172 0 th 0 0 0 pt 0 inp 0 0 650381.956
+08-28 20:42:58.291  1061  1061 D io_stats: !@ Write_top(KB): soft.appmanager:high(6482) 24 kworker/u17:0:/(28215) 20
+08-28 20:42:59.318 16782 17349 I thermal_core: pivot(AP) : 359, skin : 351
+08-28 20:42:59.321 17111 20121 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:42:59.321 17111 17175 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:42:59.357 16762 16773 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:42:59.358 16762 16773 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:42:59.358 16762 16773 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_rcv: 0
+08-28 20:42:59.358 16762  8459 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:42:59.359 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:42:59.359 16762  8459 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_spk: 0
+08-28 20:42:59.360 19616 21520 I SDHMS:x : SIOP:: AP:359 BAT:347 USB:342 CHG:361 PA:364 WIFI:359 CF:357 BLK:0 SUBBAT:0 LRPTHM:350 SKIN:350 SKINF:340 SKINB:350 LRP:350 LRF:340 LRB:350 APT:340 APR:349 RCV:338 SPK:329 CHGF:340 CHGR:348 MEMF:340 MEMR:348 WIFIF:340 WIFIR:350 FCAM:342 UPSPK:352 DNSPK:342 VAP:366 VWIFI:365 AMB2:305 HIGH:0 AVGCUR:0 POWER:0
+08-28 20:42:59.360 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_spk=33
+08-28 20:42:59.362 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_spk=33
+08-28 20:42:59.363 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:42:59.363 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:42:59.363 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_spk
+08-28 20:42:59.363 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:42:59.363 16762  8459 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_spk: 33
+08-28 20:42:59.363 16762  8459 I PAL: API: pal_set_param: 1377: Enter: param id 3002
+08-28 20:42:59.363 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:42:59.363 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:42:59.364 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:42:59.364 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_rcv=34
+08-28 20:42:59.364 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_rcv=34
+08-28 20:42:59.365 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:42:59.365 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:42:59.365 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_rcv
+08-28 20:42:59.365 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:42:59.365 16762  8459 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_rcv: 34
+08-28 20:42:59.365 16762  8459 I PAL: API: pal_set_param: 1377: Enter: param id 3001
+08-28 20:42:59.365 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:42:59.365 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:42:59.366 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:42:59.886  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:00.005 17111 17111 I EyeComfortSolutionService: action  :  android.intent.action.TIME_TICK
+08-28 20:43:00.006 18143 18735 I DateTimeView: updateAll - getTimeFormat
+08-28 20:43:00.006 18143 18143 D FaceWidgetPagesController: onTimeChanged()
+08-28 20:43:00.008 18143 18735 D QSClockBellTower: onReceive(android.intent.action.TIME_TICK) mTimeZoneString:Asia/Calcutta
+08-28 20:43:00.009 18143 18143 D QSClockBellTower: He is ready to ring the bell. (((QSClockBellSound - TimeText:8:43, TimeContentDescription:8:43 pm, DateText:Fri 28 August, ShortDateText:Fri 28 Aug, Demo:false)))
+08-28 20:43:00.011 18143 18143 D QSClock : StatusBar clock=8:43  Fri 28 Aug notifyTimeChanged(QSClockBellSound - TimeText:8:43, TimeContentDescription:8:43 pm, DateText:Fri 28 August, ShortDateText:Fri 28 Aug, Demo:false) clockVisibleByPolicy=true, clockVisibleByUser=true, visible=true, parent=android.widget.LinearLayout{7263441 V.E...... ......ID 0,0-374,90 #7e0a06b0 com.android.systemui:id/left_clock_container} caller=com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment.animateShow:66 com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment.updateStatusBarVisibilitiesInner:236 com.android.systemui.statusbar.phone.fragment.CollapsedStatusBarFragment$$ExternalSyntheticLambda5.run:86 android.os.Handler.handleCallback:1070 android.os.Handler.dispatchMessage:125  
+08-28 20:43:00.011 18143 18143 D QSClockBellTower: Everyone heard the bell. run(currentTime:1787929980009, getTime():Fri Aug 28 20:43:00 GMT+05:30 2026, getTimeZone():libcore.util.ZoneInfo[mDstSavings=0,mUseDst=false,mDelegate=[id="Asia/Calcutta",mRawOffset=19800000,mEarliestRawOffset=21208000,transitions=7]])
+08-28 20:43:00.014  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:00.021 18143 18143 W View    : requestLayout() improperly called by android.widget.FrameLayout{95a40aa V.E...... ......I. 0,0-1440,3120 #14} during layout: running second layout pass
+08-28 20:43:00.021 18143 18143 W View    : requestLayout() improperly called by com.android.systemui.qs.QSTouchAwareFrameLayout{89d849b V.E...... ......ID 0,212-1440,3120 #7e0a0a4c com.android.systemui:id/qs_frame} during layout: running second layout pass
+08-28 20:43:00.022 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:00.022  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:00.098  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:00.292  1061  1061 D io_stats: !@   8,0 r 80751493 2333303128 w 22438415 501190668 d 4077841 410037324 f 47013 378357 iot 9046176 0 th 0 0 0 pt 0 inp 0 0 650383.957
+08-28 20:43:00.481 17111 23859 I AfterimageCompensationService: AfcThread mLuminance : 31 , AfpcPeriodCount : 2156 , rotation : 0 , AOD : false
+08-28 20:43:00.481 17111 23859 D mAFPC_ABC: [READ] Start nativeDataRead : size : 1
+08-28 20:43:00.483 17111 23859 I SurfaceComposerClient: captureDisplay:Display-4630947191136750483
+08-28 20:43:00.484  1815 13478 I SnapAlloc: Using graphics libs for alignment calculations
+08-28 20:43:00.486  1950  2810 I SurfaceFlinger: Capture layer list: 	 in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097(preserveDisplayColors:0)
+08-28 20:43:00.486  1950  2810 I SurfaceFlinger: Capture layer list: 	 StatusBar$_18143#111380(preserveDisplayColors:0)
+08-28 20:43:00.486  1950  2810 I SurfaceFlinger: Capture layer list: 	 com.sec.android.app.launcher/com.samsung.app.honeyspace.edge.edgepanel.app.CocktailBarService$_18754#188005(preserveDisplayColors:0)
+08-28 20:43:00.486  1950  2810 I SurfaceFlinger: Capture layer list: 	 NavigationBar0$_18143#111376(preserveDisplayColors:0)
+08-28 20:43:00.487  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer ScreenCaptureFillLayer at index 0
+08-28 20:43:00.487  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097 at index 1
+08-28 20:43:00.487  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer StatusBar$_18143#111380 at index 2
+08-28 20:43:00.488  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer com.sec.android.app.launcher/com.samsung.app.honeyspace.edge.edgepanel.app.CocktailBarService$_18754#188005 at index 3
+08-28 20:43:00.488  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer NavigationBar0$_18143#111376 at index 4
+08-28 20:43:00.505 17111 23859 D mAFPC_ABC: [READ] luminance = 31
+08-28 20:43:00.505 17111 23859 D mAFPC_ABC: [READ] w = 1440, h = 3120, s = 32, f = 4, s_size = 18370560, luminance = 31, count = 2156, captureOrientation = 0
+08-28 20:43:00.575 17111 23859 E mAFPC_ABC: [READ] [TYPE : 0] saProcess : 0
+08-28 20:43:00.575 17111 23859 D mAFPC_ABC: [READ] END nativeDataRead
+08-28 20:43:00.716 17111 20121 D PowerManagerService: [api] setMasterBrightnessLimit : lowerLimit : -1  upperLimit : 1275  mMasterBrightnessLimitPeriod : 200 (uid: 1000 pid: 19616)
+08-28 20:43:00.717 17111 17311 D PowerManagerService: [api] BrightnessLimitRunnable done
+08-28 20:43:01.125 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [192 CELLULAR]
+08-28 20:43:01.125 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:01.127 18143 18464 I WifiPickerTracker: DefaultNetworkCallback : onCapabilitiesChanged
+08-28 20:43:01.127 18317 19173 I txpwradmin:WwanStaInfo: cacheWwanInfo subId = 2 slotId = 1
+08-28 20:43:01.128 17111 17555 D SemWifiApTrafficPriority: onCapabilitiesChanged cellular:rmnet_data7,mGapiValue:51.497Uplink: 5.769
+08-28 20:43:01.128 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:01.128 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:01.128 23368 24064 I HBD     : i onCapabilitiesChanged network : 192 current network state : mobile 
+08-28 20:43:01.129 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:01.129 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:01.130 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:01.130 19423 20548 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[232a165e-5a19]>Handler" thread_id=61 ]
+08-28 20:43:01.130 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:01.130 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:01.130 19423 20262 I BugleRcsEngine: Connected state: [1], networkType: [MOBILE] [CONTEXT thread_id=56 ]
+08-28 20:43:01.131  7127  9242 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:01.132 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:01.133 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [172 CELLULAR]
+08-28 20:43:01.133 18357 18626 I PdnController<1>: onCapabilitiesChanged: network 172 networkCapabilities [ Transports: CELLULAR Capabilities: IMS&NOT_METERED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&MMTEL&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=5769Kbps LinkDnBandwidth>=51497Kbps Specifier: <TelephonyNetworkSpecifier [mSubId = 2]> AdminUids: [10406] SubscriptionIds: {2} UnderlyingNetworks: Null]
+08-28 20:43:01.135 17111 17175 D ActivityManager: sync unfroze 27200 com.google.android.apps.messaging for 7
+08-28 20:43:01.135 27200 27200 D ActivityThread: Package [in.ac.amrita.chen.acnplanner] reported as REPLACED, but missing application info. Assuming REMOVED.
+08-28 20:43:01.136 27200 27200 D ActivityThread: Package [in.ac.amrita.chen.acnplanner] reported as REPLACED, but missing application info. Assuming REMOVED.
+08-28 20:43:01.136 27200 27200 D ActivityThread: Package [in.ac.amrita.chen.acnplanner] reported as REPLACED, but missing application info. Assuming REMOVED.
+08-28 20:43:01.136 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:01.138 27200 27285 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:01.145  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:43:01.149 27200 27278 I ForwardSyncCache: reclaimMemory: Clearing caches
+08-28 20:43:01.150 27200 27278 I BugleSpam: HadesBitmapStore: Purged 0 images during memory reclamation
+08-28 20:43:01.150 27200 27278 W Bugle   : TextClassifierLibManagerImpl: Reclaiming memory at level: 40
+08-28 20:43:01.153  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:01.230 23368 23368 I HBD     : i onCapabilityChanged  setNetworkState currentNetworkState : mobile 
+08-28 20:43:01.230 23368 23368 I HBD     : f LogTag.TAG_LMDOWNLOAD network status is changed.
+08-28 20:43:01.396 19616 19616 I SDHMS:LOAD: type: LoadsFreqs, value: 0:0:0:1017600:1017600:1017600:688128:2745600:556800:222:222:222
+08-28 20:43:01.636 27656 30219 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:01.636 27656  1154 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:02.293  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438418 501190680 d 4077841 410037324 f 47013 378357 iot 9046200 0 th 0 0 0 pt 0 inp 0 0 650385.958
+08-28 20:43:02.293  1061  1061 D io_stats: !@ Read_top(KB): .apps.messaging:high(27200) 7492 .apps.messaging:low(27200) 428 .apps.messaging:low(27200) 56
+08-28 20:43:02.293  1061  1061 D io_stats: !@ Write_top(KB): appmanager:auth:low(2889) 24 kworker/u17:2:/(31993) 8 .apps.messaging:low(27200) 4
+08-28 20:43:03.353 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:04.209  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:04.209  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:04.261 17111 17281 D BatteryExternalStatsWorker: update stats : procstate-change (14)
+08-28 20:43:04.262 17111 17281 D BatteryExternalStatsWorker: Fetch WiFi data
+08-28 20:43:04.262 17111 17281 D BatteryExternalStatsWorker: Update Rail Energy data
+08-28 20:43:04.262 17111 17281 D BatteryExternalStatsWorker: mStats lock released
+08-28 20:43:04.262 17111 17281 D BatteryExternalStatsWorker: done updateExternalStatsLocked
+08-28 20:43:04.262 17111 17281 D KernelCpuUidUserSysTimeReader: Removing uids 99257-99257
+08-28 20:43:04.301 17111 17388 D ActivityManager: freezing 28812 com.samsung.android.widget.pictureframe
+08-28 20:43:04.304 17111 17390 D ActivityManager: Received BROADCAST intent 0xfb7b9c Key{broadcastIntent pkg=com.samsung.android.widget.pictureframe intent=xflg=0x4 cmp=com.samsung.android.widget.pictureframe/.glance.helper.ExactRepeatingAlarmReceiver flags=0x2000000 u=0} requestCode=1001 sent=0 from uid 1000
+08-28 20:43:04.306 17111 17269 D ActivityManager: sync unfroze 28812 com.samsung.android.widget.pictureframe for 3
+08-28 20:43:04.308 17111 17269 I ActivityManager: Changes in 10082 19 to 11, 0 to 384
+08-28 20:43:04.312 28812 28812 I PFW     : [5196:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:04.312 17111 17175 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:04.312 28812 28812 I PFW     : [5197:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:04.312 17111 17175 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:04.313 17111 20211 I ActivityManager: Changes in 10082 11 to 19, 384 to 128
+08-28 20:43:04.315 28812 26093 I PFW_G   : [5198:  WidgetAlarmManager] setup alarm one minute
+08-28 20:43:04.316  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:04.324  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:04.386  1924  1945 D HeatmapThread: Updated plugType via uevent: 2
+08-28 20:43:04.391 16782 16782 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+08-28 20:43:04.391  1826  1923 E BatteryDump: !@new_battery_dump : 4268,5,1200,4189,94,347,342,361,347,0,351,361,0,Not-charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,140,v0002,0000,0000,00000000,0,0,0,0,696,4270,9398,990,0,
+08-28 20:43:04.391  1826  1826 I sehhealth-service: updateLrpSysfs: write: 350
+08-28 20:43:06.295  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438426 501190712 d 4077841 410037324 f 47013 378357 iot 9046208 0 th 0 0 0 pt 0 inp 0 0 650389.960
+08-28 20:43:06.295  1061  1061 D io_stats: !@ Write_top(KB): soft.appmanager:high(6482) 24 vendor.samsung.:normal(1826) 8
+08-28 20:43:08.295  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438437 501190804 d 4077841 410037324 f 47013 378357 iot 9046212 0 th 0 0 0 pt 0 inp 0 0 650391.961
+08-28 20:43:08.474 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:08.530  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:08.530  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:08.544 17111 17505 D ConnectivityService: reportNetworkActive, notify 2 listeners
+08-28 20:43:08.641  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.641  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.642  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.642  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.643  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.643  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.644  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.644  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:08.704  1785 19032 I sensors-hal: handle_sns_client_event:202, auto_rotation_debug_2 mode,255, type,1,0 acc,-0.148,8.514,4.910, ar,0, ver,15, pedo,1,e,1,i,3
+08-28 20:43:09.158 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:09.169  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:09.170 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:09.173 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:09.173 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:09.177  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:09.183  1950  1950 I SurfaceFlinger: SFWD update time=650392848508033
+08-28 20:43:09.257  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:09.319 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:09.319 17111 20121 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:09.361 16782 17349 I thermal_core: pivot(AP) : 357, skin : 350
+08-28 20:43:09.395 16762  8459 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:09.395 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:09.395 16762  8459 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_rcv: 0
+08-28 20:43:09.396 16762 16987 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:09.396 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:09.396 16762 16987 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_spk: 0
+08-28 20:43:09.397 19616 21520 I SDHMS:x : SIOP:: AP:357 BAT:347 USB:342 CHG:360 PA:363 WIFI:358 CF:356 BLK:0 SUBBAT:0 LRPTHM:350 SKIN:349 SKINF:340 SKINB:349 LRP:349 LRF:340 LRB:349 APT:340 APR:348 RCV:338 SPK:329 CHGF:339 CHGR:347 MEMF:340 MEMR:347 WIFIF:340 WIFIR:349 FCAM:342 UPSPK:352 DNSPK:342 VAP:364 VWIFI:364 AMB2:305 HIGH:0 AVGCUR:0 POWER:0
+08-28 20:43:09.398 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_spk=33
+08-28 20:43:09.399 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_spk=33
+08-28 20:43:09.399 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:09.399 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:09.399 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_spk
+08-28 20:43:09.399 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:09.399 16762 16987 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_spk: 33
+08-28 20:43:09.399 16762 16987 I PAL: API: pal_set_param: 1377: Enter: param id 3002
+08-28 20:43:09.399 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:09.400 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:09.400 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:09.400 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:09.401 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:09.401 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:09.401 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:09.401 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_rcv
+08-28 20:43:09.401 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:09.401 16762  8459 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_rcv: 34
+08-28 20:43:09.401 16762  8459 I PAL: API: pal_set_param: 1377: Enter: param id 3001
+08-28 20:43:09.401 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:09.401 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:09.402 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:09.741  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.741  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.742  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.742  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.743  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.743  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.746  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:09.746  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:10.157 17111 17586 D SemCellularStateManager: onSignalStrengthsChanged: mCellularSignalLevel=1
+08-28 20:43:10.157 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:10.158 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:10.158 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:10.158 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:10.158 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:10.158 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:10.159 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2)
+08-28 20:43:10.159 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) lastNotifiedSignalStrength level: 0
+08-28 20:43:10.159 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) currSignalStrength level: 0
+08-28 20:43:10.160 18143 18283 D MobileSignalTransitionManager: updateSignalTransition
+08-28 20:43:10.161 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:10.161 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:10.168  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:43:10.176  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:10.182 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:10.184 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:10.184 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:10.192  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 40
+08-28 20:43:10.200  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:10.265  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:10.296  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438443 501190828 d 4077841 410037324 f 47013 378357 iot 9046216 0 th 0 0 0 pt 0 inp 0 0 650393.962
+08-28 20:43:10.297  1061  1061 D io_stats: !@ Write_top(KB): kworker/u17:2:/(31993) 92 appmanager:auth:low(2889) 24
+08-28 20:43:10.740 17111 19312 D PowerManagerService: [api] setMasterBrightnessLimit : lowerLimit : -1  upperLimit : 1275  mMasterBrightnessLimitPeriod : 200 (uid: 1000 pid: 19616)
+08-28 20:43:10.740 17111 17311 D PowerManagerService: [api] BrightnessLimitRunnable done
+08-28 20:43:11.412 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:6
+08-28 20:43:11.412 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:11.414 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:4
+08-28 20:43:11.414 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:11.415 17111 17603 I SemWifiIntelligentTrainingManager: Tr. cond. check: false / 2 (2) / true / 0 (1)
+08-28 20:43:11.415 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:6
+08-28 20:43:11.415 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:11.528 19616 19616 I SDHMS:LOAD: type: LoadsFreqs, value: 0:0:0:1017600:1017600:1017600:556800:556800:556800:222:222:222
+08-28 20:43:12.297  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438486 501191148 d 4077841 410037324 f 47013 378357 iot 9046220 0 th 0 0 0 pt 0 inp 0 0 650395.963
+08-28 20:43:12.847  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:13.171 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [192 CELLULAR]
+08-28 20:43:13.172 18143 18464 I WifiPickerTracker: DefaultNetworkCallback : onCapabilitiesChanged
+08-28 20:43:13.173 23368 24064 I HBD     : i onCapabilitiesChanged network : 192 current network state : mobile 
+08-28 20:43:13.174 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:13.174 18317 19173 I txpwradmin:WwanStaInfo: cacheWwanInfo subId = 2 slotId = 1
+08-28 20:43:13.175 17111 17555 D SemWifiApTrafficPriority: onCapabilitiesChanged cellular:rmnet_data7,mGapiValue:51.678Uplink: 5.769
+08-28 20:43:13.176 27200 27285 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:13.177 19423 20548 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[232a165e-5a19]>Handler" thread_id=61 ]
+08-28 20:43:13.177 19423 20262 I BugleRcsEngine: Connected state: [1], networkType: [MOBILE] [CONTEXT thread_id=56 ]
+08-28 20:43:13.177 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:13.177 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:13.177 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:13.177 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:13.179 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:13.179  7127  9242 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:13.179 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [172 CELLULAR]
+08-28 20:43:13.180 18357 18626 I PdnController<1>: onCapabilitiesChanged: network 172 networkCapabilities [ Transports: CELLULAR Capabilities: IMS&NOT_METERED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&MMTEL&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=5769Kbps LinkDnBandwidth>=51678Kbps Specifier: <TelephonyNetworkSpecifier [mSubId = 2]> AdminUids: [10406] SubscriptionIds: {2} UnderlyingNetworks: Null]
+08-28 20:43:13.181 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:13.278 23368 23368 I HBD     : i onCapabilityChanged  setNetworkState currentNetworkState : mobile 
+08-28 20:43:13.279 23368 23368 I HBD     : f LogTag.TAG_LMDOWNLOAD network status is changed.
+08-28 20:43:13.682 27656  1154 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:13.683 27656 30219 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:14.298  1061  1061 D io_stats: !@ Write_top(KB): f2fs_ckpt-254:7:/(1283) 304 kworker/u17:2:/(31993) 12 .apps.messaging:low(27200) 4
+08-28 20:43:14.312 17111 17358 I ActivityManager: Changes in 10082 19 to 19, 128 to 0
+08-28 20:43:14.317 28812 28812 I PFW     : [5201:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:14.322  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:14.325 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:14.325 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:14.330  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:14.546  1924  1945 D HeatmapThread: Updated plugType via uevent: 2
+08-28 20:43:14.550  1826  1923 E BatteryDump: !@new_battery_dump : 4268,10,1200,4189,94,347,342,359,347,0,350,359,0,Not-charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,137,v0002,0000,0000,00000000,0,0,0,0,696,4270,9398,990,0,
+08-28 20:43:14.551 16782 16782 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+08-28 20:43:14.551  1826  1826 I sehhealth-service: updateLrpSysfs: write: 349
+08-28 20:43:16.299  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438494 501191180 d 4077841 410037324 f 47013 378357 iot 9046224 0 th 0 0 0 pt 0 inp 0 0 650399.965
+08-28 20:43:17.169  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:17.170  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:17.680 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:17.681 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:17.682 17111 20211 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:17.682 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1)
+08-28 20:43:17.682 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) lastNotifiedSignalStrength level: 0
+08-28 20:43:17.682 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) currSignalStrength level: 0
+08-28 20:43:17.686 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [183 CELLULAR]
+08-28 20:43:17.687 18357 18626 I PdnController<0>: onCapabilitiesChanged: network 183 networkCapabilities [ Transports: CELLULAR Capabilities: IMS&NOT_METERED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&MMTEL&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=4071Kbps LinkDnBandwidth>=11912Kbps Specifier: <TelephonyNetworkSpecifier [mSubId = 1]> AdminUids: [10372] SubscriptionIds: {1} UnderlyingNetworks: Null]
+08-28 20:43:18.300  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438496 501191208 d 4077841 410037324 f 47013 378357 iot 9046228 0 th 0 0 0 pt 0 inp 0 0 650401.966
+08-28 20:43:18.301  1061  1061 D io_stats: !@ Write_top(KB): kworker/u17:2:/(31993) 28 soft.appmanager:high(6482) 24 vendor.samsung.:normal(1826) 8
+08-28 20:43:18.709 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:19.331 17111 20211 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:19.331 17111 20211 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:19.357  1785 19032 I sensors-hal: handle_sns_client_event:202, auto_rotation_debug_2 mode,255, type,1,0 acc,-0.182,8.504,5.034, ar,0, ver,15, pedo,1,e,1,i,3
+08-28 20:43:19.399 16782 17349 I thermal_core: pivot(AP) : 356, skin : 349
+08-28 20:43:19.431 16762  8459 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:19.431 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:19.431 16762  8459 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_rcv: 0
+08-28 20:43:19.432 16762 16987 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:19.432 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:19.432 16762 16987 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_spk: 0
+08-28 20:43:19.433 19616 21520 I SDHMS:x : SIOP:: AP:356 BAT:347 USB:342 CHG:359 PA:361 WIFI:357 CF:355 BLK:0 SUBBAT:0 LRPTHM:349 SKIN:349 SKINF:339 SKINB:349 LRP:349 LRF:339 LRB:349 APT:339 APR:347 RCV:337 SPK:329 CHGF:339 CHGR:347 MEMF:339 MEMR:347 WIFIF:339 WIFIR:349 FCAM:342 UPSPK:351 DNSPK:342 VAP:363 VWIFI:363 AMB2:305 HIGH:0 AVGCUR:0 POWER:0
+08-28 20:43:19.434 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_spk=33
+08-28 20:43:19.435 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_spk=33
+08-28 20:43:19.435 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:19.435 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:19.436 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_spk
+08-28 20:43:19.436 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:19.436 16762  8459 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_spk: 33
+08-28 20:43:19.436 16762  8459 I PAL: API: pal_set_param: 1377: Enter: param id 3002
+08-28 20:43:19.436 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:19.436 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:19.436 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:19.437 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:19.437 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:19.437 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:19.437 16762  8459 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:19.438 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_rcv
+08-28 20:43:19.438 16762  8459 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:19.438 16762  8459 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_rcv: 34
+08-28 20:43:19.438 16762  8459 I PAL: API: pal_set_param: 1377: Enter: param id 3001
+08-28 20:43:19.438 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:19.438 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:19.438 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:19.546 17111 17401 D InputReader: Btn_touch(5): value=1 when=650403.211412
+08-28 20:43:19.546 17111 17401 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.10149 ] when=650403.211412
+08-28 20:43:19.549 17111 17400 I InputDispatcher: Delivering touch to (18143): action: 0x4, f=0x0, d=0, 'eb5f96b', t=1 
+08-28 20:43:19.549 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x0, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:19.549 17111 17400 D PowerManagerService: [api] userActivityFromNative : touch displayId=0 eventTime=650403211
+08-28 20:43:19.550 17111 17400 D PowerManagerService: UserActivityStateListenerState: 1
+08-28 20:43:19.551 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 509684513 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:19.551 18754 18754 I HoneySpace.InputConsumerFactory: checkMultiFingerGesture: returning NO_OP - gesture disabled or blocked
+08-28 20:43:19.551 18754 18754 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@ac71efd]
+08-28 20:43:19.551 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 509684513 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:19.551 18754 18754 I HoneySpace.InputSession: inputConsumers = NO_OP
+08-28 20:43:19.551  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 0
+08-28 20:43:19.551 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 987622912
+08-28 20:43:19.551 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 987622912
+08-28 20:43:19.551 18754 18754 I HoneySpace.InputSession: open
+08-28 20:43:19.553 19616 19616 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/19616@31, type = -999
+08-28 20:43:19.553 19616 19616 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/19616@32, type = -999
+08-28 20:43:19.553 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193012159 [19616 / 31]  HINT :     list : [TABoost / 1] [TIMEOUT / 1500] 
+08-28 20:43:19.554 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193031808 [19616 / 32]  HINT : TA_TOUCH_SHARE   list : [TIMEOUT / 1500] 
+08-28 20:43:19.555  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:19.558  2461  2461 I VRI[MainActivity]@552a8c: call setFrameRateCategory for touch hint category=high hint, reason=touch, vri=VRI[MainActivity]@552a8c
+08-28 20:43:19.562  1950  1950 I SurfaceFlinger: [in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097] setFrameRateCategory: HighHint
+08-28 20:43:19.564  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:19.593 17111 17111 I SemDvfsHyPerManager: acquire hyper - WM_SCROLL_DETECTED/17111@3, type = -999
+08-28 20:43:19.594 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146453058 [17111 / 3]  HINT :     list : [CoreNumBigMin / 6] 
+08-28 20:43:19.642 17111 17401 D InputReader: Btn_touch(5): value=0 when=650403.307635
+08-28 20:43:19.642 17111 17401 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=650403.307635
+08-28 20:43:19.642 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x1, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:19.642 18754 18754 I HoneySpace.GestureInputHandler: reset
+08-28 20:43:19.642 18754 18754 I HoneySpace.InputSession: close
+08-28 20:43:19.643 17111 17111 I SemDvfsHyPerManager: acquire hyper - SMOOTH_SCROLL/17111@25, type = -999
+08-28 20:43:19.643 17111 17111 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/17111@29, type = -999
+08-28 20:43:19.643 17111 17111 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/17111@29, type = -999
+08-28 20:43:19.643 16779 16814 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 146453058
+08-28 20:43:19.643 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146898399 [17111 / 29]  HINT : GESTURE_DETECTED_HRR   list : [TIMEOUT / 1166] 
+08-28 20:43:19.643  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 1
+08-28 20:43:19.644 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146898399 [17111 / 29]  HINT : GESTURE_DETECTED_HRR   list : [TIMEOUT / 1166] 
+08-28 20:43:19.675 17111 17401 D InputReader: Btn_touch(5): value=1 when=650403.341086
+08-28 20:43:19.675 17111 17401 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.10150 ] when=650403.341086
+08-28 20:43:19.676 17111 17400 I InputDispatcher: Delivering touch to (18143): action: 0x4, f=0x0, d=0, 'eb5f96b', t=1 
+08-28 20:43:19.676 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x0, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:19.676  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 0
+08-28 20:43:19.677 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 864039071 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:19.677 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 864039071 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:19.677 18754 18754 I HoneySpace.InputConsumerFactory: checkMultiFingerGesture: returning NO_OP - gesture disabled or blocked
+08-28 20:43:19.677 18754 18754 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@ac71efd]
+08-28 20:43:19.677 18754 18754 I HoneySpace.InputSession: inputConsumers = NO_OP
+08-28 20:43:19.677 18754 18754 I HoneySpace.InputSession: open
+08-28 20:43:19.678 19616 19616 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/19616@31, type = -999
+08-28 20:43:19.679 19616 19616 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/19616@32, type = -999
+08-28 20:43:19.679 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193012159 [19616 / 31]  HINT :     list : [TABoost / 1] [TIMEOUT / 1500] 
+08-28 20:43:19.679 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193031808 [19616 / 32]  HINT : TA_TOUCH_SHARE   list : [TIMEOUT / 1500] 
+08-28 20:43:19.685 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 599369475
+08-28 20:43:19.685 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 599369475
+08-28 20:43:19.768 17111 17111 I SemDvfsHyPerManager: acquire hyper - WM_SCROLL_DETECTED/17111@3, type = -999
+08-28 20:43:19.768 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146453058 [17111 / 3]  HINT :     list : [CoreNumBigMin / 6] 
+08-28 20:43:19.784 19616 19616 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/19616@31, type = -999
+08-28 20:43:19.784 19616 19616 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/19616@32, type = -999
+08-28 20:43:19.784 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193012159 [19616 / 31]  HINT :     list : [TABoost / 1] [TIMEOUT / 1500] 
+08-28 20:43:19.784 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193031808 [19616 / 32]  HINT : TA_TOUCH_SHARE   list : [TIMEOUT / 1500] 
+08-28 20:43:19.892 19616 19616 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/19616@31, type = -999
+08-28 20:43:19.892 19616 19616 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/19616@32, type = -999
+08-28 20:43:19.892 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193012159 [19616 / 31]  HINT :     list : [TABoost / 1] [TIMEOUT / 1500] 
+08-28 20:43:19.892 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193031808 [19616 / 32]  HINT : TA_TOUCH_SHARE   list : [TIMEOUT / 1500] 
+08-28 20:43:19.950 17111 17401 D InputReader: Btn_touch(5): value=0 when=650403.615546
+08-28 20:43:19.950 17111 17401 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=650403.615546
+08-28 20:43:19.950 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x1, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:19.950 18754 18754 I HoneySpace.GestureInputHandler: reset
+08-28 20:43:19.950 18754 18754 I HoneySpace.InputSession: close
+08-28 20:43:19.950 17111 17111 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/17111@29, type = -999
+08-28 20:43:19.950 17111 17111 I SemDvfsHyPerManager: acquire hyper - SMOOTH_SCROLL/17111@25, type = -999
+08-28 20:43:19.950 17111 17111 I SemDvfsHyPerManager: acquire hyper - GESTURE_DETECTED_HRR/17111@29, type = -999
+08-28 20:43:19.951 16779 16814 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 146453058
+08-28 20:43:19.951 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146898399 [17111 / 29]  HINT : GESTURE_DETECTED_HRR   list : [TIMEOUT / 1438] 
+08-28 20:43:19.951 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 146898399 [17111 / 29]  HINT : GESTURE_DETECTED_HRR   list : [TIMEOUT / 1438] 
+08-28 20:43:19.953  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 1
+08-28 20:43:20.302  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438502 501191232 d 4077841 410037324 f 47013 378357 iot 9046232 0 th 0 0 0 pt 0 inp 0 0 650403.967
+08-28 20:43:20.368  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:20.609 17111 17401 D InputReader: Btn_touch(5): value=1 when=650404.274264
+08-28 20:43:20.609 17111 17401 I InputReader: Touch event's action is 0x0 (id=6, t=0) [pCnt=1, s=0.10151 ] when=650404.274264
+08-28 20:43:20.610 17111 17400 I InputDispatcher: Delivering touch to (18143): action: 0x4, f=0x0, d=0, 'eb5f96b', t=1 
+08-28 20:43:20.610 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x0, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:20.611 17111 17400 D PowerManagerService: [api] userActivityFromNative : touch displayId=0 eventTime=650404274
+08-28 20:43:20.611  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 0
+08-28 20:43:20.611 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 848665944 caller: com.android.server.wm.SystemGesturesPointerEventListener.onPointerEvent:17 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:20.611 17111 17206 I GestureDetector: obtain mCurrentDownEvent. id: 848665944 caller: com.android.server.wm.SystemPerformancePointerEventListener.onPointerEvent:13 com.android.server.wm.PointerEventDispatcher.onInputEvent:51 android.view.InputEventReceiver.dispatchInputEvent:369 
+08-28 20:43:20.612 18754 18754 I HoneySpace.InputConsumerFactory: checkMultiFingerGesture: returning NO_OP - gesture disabled or blocked
+08-28 20:43:20.612 18754 18754 I HoneySpace.GestureInputHandler: inputConsumers = [com.honeyspace.gesture.inputconsumer.InputConsumer$Companion$NO_OP$1@ac71efd]
+08-28 20:43:20.612 18754 18754 I HoneySpace.InputSession: inputConsumers = NO_OP
+08-28 20:43:20.612 18754 18754 I HoneySpace.InputSession: open
+08-28 20:43:20.612 19616 19616 I SemDvfsHyPerManager: acquire hyper - TATouchBoost/19616@31, type = -999
+08-28 20:43:20.612 19616 19616 I SemDvfsHyPerManager: acquire hyper - TA_TOUCH_SHARE/19616@32, type = -999
+08-28 20:43:20.613 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193012159 [19616 / 31]  HINT :     list : [TABoost / 1] [TIMEOUT / 1500] 
+08-28 20:43:20.613 16779 16814 I HYPER-HAL: [RequestManager.cpp]acquire(): Acquired ID : 193031808 [19616 / 32]  HINT : TA_TOUCH_SHARE   list : [TIMEOUT / 1500] 
+08-28 20:43:20.617 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 610035779
+08-28 20:43:20.617 17111 17206 I GestureDetector: obtain mCurrentMotionEventRaw. action: 2 id: 610035779
+08-28 20:43:20.621  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:43:20.629  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:20.659 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:20.660 17111 20211 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:20.660 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:20.661 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1)
+08-28 20:43:20.661 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) lastNotifiedSignalStrength level: 0
+08-28 20:43:20.661 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) currSignalStrength level: 0
+08-28 20:43:20.674 17111 17401 D InputReader: Btn_touch(5): value=0 when=650404.339693
+08-28 20:43:20.674 17111 17401 I InputReader: Touch event's action is 0x1 (id=6, t=0) [pCnt=1, s=] when=650404.339693
+08-28 20:43:20.674 17111 17400 I InputDispatcher: Delivering touch to (2461): action: 0x1, f=0x0, d=0, 'ef13b8d', t=1 
+08-28 20:43:20.675  2461  2461 I VRI[MainActivity]@552a8c: ViewPostIme pointer 1
+08-28 20:43:20.675 18754 18754 I HoneySpace.GestureInputHandler: reset
+08-28 20:43:20.675 18754 18754 I HoneySpace.InputSession: close
+08-28 20:43:20.681  2461  2461 D ACN_AI  : API Key present: true, length: 39
+08-28 20:43:20.684  2461  2461 D ACN_AI  : Sending message to Gemini: Am I safe to skip a class?
+08-28 20:43:20.701 17111 17505 D ConnectivityService: reportNetworkActive, notify 2 listeners
+08-28 20:43:20.790 17111 19312 D PowerManagerService: [api] setMasterBrightnessLimit : lowerLimit : -1  upperLimit : 1275  mMasterBrightnessLimitPeriod : 200 (uid: 1000 pid: 19616)
+08-28 20:43:20.791 17111 17311 D PowerManagerService: [api] BrightnessLimitRunnable done
+08-28 20:43:20.879 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:20.900  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.900  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.900  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.901  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.902  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.902  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.903  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.903  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:20.911 17111 17206 I GestureDetector: handleMessage TAP
+08-28 20:43:20.912 17111 17111 I GestureDetector: handleMessage TAP
+08-28 20:43:21.195 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:21.197 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:21.199 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:21.199 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:21.389 16779  3407 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 146898399
+08-28 20:43:21.486  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:21.487  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:21.661 19616 19616 I SDHMS:LOAD: type: LoadsFreqs, value: 10:0:1:1017600:1017600:1017600:657023:2745600:556800:215:222:160
+08-28 20:43:21.956  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:22.000  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.000  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.000  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.000  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.001  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.001  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.002  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.002  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:22.113 16779  3403 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 193012159
+08-28 20:43:22.113 16779  3404 I HYPER-HAL: [RequestManager.cpp]releaseLocked(): Released ID : 193031808
+08-28 20:43:22.197 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:22.205 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:22.207 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:22.207 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:22.302  1061  1061 D io_stats: !@ Write_top(KB): appmanager:auth:low(2889) 24 kworker/u17:2:/(31993) 4
+08-28 20:43:23.156  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:23.217 17111 17525 W DeviceStorageMonitorService: updateBroadcasts(/data) oldLevel:0, newLevel:0, seq:1
+08-28 20:43:23.218 17111 17525 D DeviceStorageMonitorService: Available File Node Number is [12516953]
+08-28 20:43:23.218 17111 17525 W DeviceStorageMonitorService: updateBroadcasts_filenode(/data) fn_oldLevel:0, fn_newLevel:0, seq:1
+08-28 20:43:23.413 17111 17554 D UsbStatsMonitor: 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 223338299396
+08-28 20:43:23.611 17111 17311 D PowerManagerService: UserActivityStateListenerState: 0
+08-28 20:43:23.689  2461  2461 I VRI[MainActivity]@552a8c: call setFrameRateCategory for touch hint category=no preference, reason=boost timeout, vri=VRI[MainActivity]@552a8c
+08-28 20:43:23.692  1950  1950 I SurfaceFlinger: [in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097] setFrameRateCategory: NoPreference
+08-28 20:43:24.218 17111 19312 D NetdEventListenerService: CSC Feature value: true
+08-28 20:43:24.218 17111 19312 D NetdEventListenerService: CSC Feature value: true
+08-28 20:43:24.303  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438503 501191236 d 4079148 410078880 f 47013 378357 iot 9046272 0 th 0 0 0 pt 0 inp 0 0 650407.968
+08-28 20:43:24.312 17111 17388 D ActivityManager: freezing 28812 com.samsung.android.widget.pictureframe
+08-28 20:43:24.316 17111 17390 D ActivityManager: Received BROADCAST intent 0xfb7b9c Key{broadcastIntent pkg=com.samsung.android.widget.pictureframe intent=xflg=0x4 cmp=com.samsung.android.widget.pictureframe/.glance.helper.ExactRepeatingAlarmReceiver flags=0x2000000 u=0} requestCode=1001 sent=0 from uid 1000
+08-28 20:43:24.317 17111 17269 D ActivityManager: sync unfroze 28812 com.samsung.android.widget.pictureframe for 3
+08-28 20:43:24.318 17111 17505 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET, states=14
+08-28 20:43:24.318 17111 17269 I ActivityManager: Changes in 10082 19 to 11, 0 to 384
+08-28 20:43:24.320 17111 17505 D InetDiagMessage: Destroyed 0 sockets, proto=IPPROTO_TCP, family=AF_INET6, states=14
+08-28 20:43:24.320 17111 17505 D InetDiagMessage: Destroyed live tcp sockets for uids={10082} in 4ms
+08-28 20:43:24.322 17111 19312 I ActivityManager: Changes in 10082 11 to 19, 384 to 128
+08-28 20:43:24.323 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:24.323 17111 18263 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:24.325 28812 26093 I PFW_G   : [5208:  WidgetAlarmManager] setup alarm one minute
+08-28 20:43:24.325 28812 28812 I PFW     : [5209:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:24.325 28812 28812 I PFW     : [5210:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:24.355  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:24.464 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:24.465 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:24.465 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1)
+08-28 20:43:24.465 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) lastNotifiedSignalStrength level: 0
+08-28 20:43:24.465 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) currSignalStrength level: 0
+08-28 20:43:24.465 17111 18263 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:24.614 17111 17211 E Watchdog: !@Sync: 8442 heap(MB): 174 / 214 FD: 1569 Threads: 597 [2026-08-28 20:43:24.614]
+08-28 20:43:24.708  1924  1945 D HeatmapThread: Updated plugType via uevent: 2
+08-28 20:43:24.711 16782 16782 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+08-28 20:43:24.711  1826  1826 I sehhealth-service: updateLrpSysfs: write: 349
+08-28 20:43:24.711  1826  1923 E BatteryDump: !@new_battery_dump : 4269,10,1200,4189,94,347,342,362,347,0,349,362,0,Not-charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,177,v0002,0000,0000,00000000,0,0,0,0,696,4270,9398,990,0,
+08-28 20:43:25.516 17111 17586 D SemCellularStateManager: onSignalStrengthsChanged: mCellularSignalLevel=0
+08-28 20:43:25.517 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:25.518 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:25.518 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:25.518 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:25.518 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:25.518 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2)
+08-28 20:43:25.518 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) lastNotifiedSignalStrength level: 0
+08-28 20:43:25.518 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) currSignalStrength level: 0
+08-28 20:43:25.519 17111 19312 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:25.520 18143 18279 D MobileSignalTransitionManager: updateSignalTransition
+08-28 20:43:25.521 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:25.539 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:25.540 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:25.541 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:25.806  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:26.303  1061  1061 D io_stats: !@   8,0 r 80751865 2333311104 w 22438511 501191268 d 4079148 410078880 f 47013 378357 iot 9046280 0 th 0 0 0 pt 0 inp 0 0 650409.968
+08-28 20:43:26.303  1061  1061 D io_stats: !@ Write_top(KB): soft.appmanager:high(6482) 24 vendor.samsung.:normal(1826) 8
+08-28 20:43:26.636 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:26.637 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:26.637 17111 18263 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:26.637 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1)
+08-28 20:43:26.637 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) lastNotifiedSignalStrength level: 0
+08-28 20:43:26.637 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(1) currSignalStrength level: 0
+08-28 20:43:26.751  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:27.755  2461  2470 D InputTransport: Input channel destroyed: 'ClientS', fd=212
+08-28 20:43:27.755  2461  2470 D InputTransport: Input channel destroyed: 'ClientS', fd=200
+08-28 20:43:27.958  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:29.157  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:29.329 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:29.329 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:29.435 16782 17349 I thermal_core: pivot(AP) : 362, skin : 349
+08-28 20:43:29.466 16762  8459 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:29.467 16762  8459 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:29.467 16762  8459 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_rcv: 0
+08-28 20:43:29.468 16762 16987 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:29.468 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:29.468 16762 16987 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_spk: 0
+08-28 20:43:29.469 19616 21520 I SDHMS:x : SIOP:: AP:362 BAT:347 USB:342 CHG:363 PA:366 WIFI:358 CF:355 BLK:0 SUBBAT:0 LRPTHM:349 SKIN:348 SKINF:341 SKINB:348 LRP:348 LRF:341 LRB:348 APT:341 APR:347 RCV:337 SPK:329 CHGF:341 CHGR:347 MEMF:341 MEMR:347 WIFIF:340 WIFIR:348 FCAM:342 UPSPK:351 DNSPK:342 VAP:362 VWIFI:363 AMB2:305 HIGH:0 AVGCUR:2 POWER:8
+08-28 20:43:29.469 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_spk=33
+08-28 20:43:29.470 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_spk=33
+08-28 20:43:29.470 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:29.470 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:29.471 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_spk
+08-28 20:43:29.471 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:29.471 16762 16987 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_spk: 33
+08-28 20:43:29.471 16762 16987 I PAL: API: pal_set_param: 1377: Enter: param id 3002
+08-28 20:43:29.471 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:29.471 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:29.471 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:29.472 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:29.472 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:29.472 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:29.472 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:29.473 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_rcv
+08-28 20:43:29.473 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:29.473 16762 16987 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_rcv: 34
+08-28 20:43:29.473 16762 16987 I PAL: API: pal_set_param: 1377: Enter: param id 3001
+08-28 20:43:29.473 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:29.473 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:29.473 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:29.686 23368 24059 I HBD     : [HoneySession] ContextSessionMaintainWorker success doWork 
+08-28 20:43:29.698 17111 17111 W ProcessStats: Tracking association SourceState{21c75d7 system/1000 BFgs #997862} whose proc state 4 is better than process ProcessState{d4fdec4 com.openai.chatgpt/10374 pkg=com.openai.chatgpt} proc state 5 (1 skipped)
+08-28 20:43:29.702 17111 19312 D PackageManager: setEnabledSetting : userId = 0 packageName = com.samsung.android.honeyboard cmp = androidx.work.impl.background.systemalarm.RescheduleReceiver newState = 2 callingPackage = com.samsung.android.honeyboard
+08-28 20:43:30.009  1785 19032 I sensors-hal: handle_sns_client_event:202, auto_rotation_debug_2 mode,255, type,1,0 acc,-0.172,8.528,4.953, ar,0, ver,15, pedo,1,e,1,i,3
+08-28 20:43:30.126  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:30.126  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:30.305  1061  1061 D io_stats: !@   8,0 r 80751883 2333311376 w 22438527 501191336 d 4079148 410078880 f 47013 378357 iot 9046288 0 th 0 0 0 pt 0 inp 0 0 650413.970
+08-28 20:43:30.305  1061  1061 D io_stats: !@ Read_top(KB): roid.honeyboard:top(23368) 256 id.diagmonagent:normal(19559) 16
+08-28 20:43:30.305  1061  1061 D io_stats: !@ Write_top(KB): id.diagmonagent:normal(19559) 36 appmanager:auth:low(2889) 24 kworker/u17:2:/(31993) 8
+08-28 20:43:30.355  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:30.576 17111 23859 I AfterimageCompensationService: AfcThread mLuminance : 31 , AfpcPeriodCount : 2157 , rotation : 0 , AOD : false
+08-28 20:43:30.576 17111 23859 D mAFPC_ABC: [READ] Start nativeDataRead : size : 1
+08-28 20:43:30.576 17111 23859 I SurfaceComposerClient: captureDisplay:Display-4630947191136750483
+08-28 20:43:30.577  1815 13478 I SnapAlloc: Using graphics libs for alignment calculations
+08-28 20:43:30.578  1950  2810 I SurfaceFlinger: Capture layer list: 	 in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097(preserveDisplayColors:0)
+08-28 20:43:30.578  1950  2810 I SurfaceFlinger: Capture layer list: 	 StatusBar$_18143#111380(preserveDisplayColors:0)
+08-28 20:43:30.578  1950  2810 I SurfaceFlinger: Capture layer list: 	 com.sec.android.app.launcher/com.samsung.app.honeyspace.edge.edgepanel.app.CocktailBarService$_18754#188005(preserveDisplayColors:0)
+08-28 20:43:30.578  1950  2810 I SurfaceFlinger: Capture layer list: 	 NavigationBar0$_18143#111376(preserveDisplayColors:0)
+08-28 20:43:30.579  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer ScreenCaptureFillLayer at index 0
+08-28 20:43:30.579  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer in.ac.amrita.chen.acnplanner/acn.amrita.chen.planner.MainActivity$_2461#188097 at index 1
+08-28 20:43:30.579  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer StatusBar$_18143#111380 at index 2
+08-28 20:43:30.579  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer com.sec.android.app.launcher/com.samsung.app.honeyspace.edge.edgepanel.app.CocktailBarService$_18754#188005 at index 3
+08-28 20:43:30.580  1950  2174 D SurfaceFlinger: [SEC_SF_EFFECTS] drawLayersInternal,1337, Rendering layer NavigationBar0$_18143#111376 at index 4
+08-28 20:43:30.585 17111 23859 D mAFPC_ABC: [READ] luminance = 31
+08-28 20:43:30.585 17111 23859 D mAFPC_ABC: [READ] w = 1440, h = 3120, s = 32, f = 4, s_size = 18370560, luminance = 31, count = 2157, captureOrientation = 0
+08-28 20:43:30.652 17111 23859 E mAFPC_ABC: [READ] [TYPE : 0] saProcess : 0
+08-28 20:43:30.652 17111 23859 D mAFPC_ABC: [READ] END nativeDataRead
+08-28 20:43:30.704 17111 17322 D PackageManager: Don't send PACKAGE_CHANGED for com.samsung.android.honeyboard by WorkManager
+08-28 20:43:30.841 17111 19312 D PowerManagerService: [api] setMasterBrightnessLimit : lowerLimit : -1  upperLimit : 1275  mMasterBrightnessLimitPeriod : 200 (uid: 1000 pid: 19616)
+08-28 20:43:30.843 17111 17311 D PowerManagerService: [api] BrightnessLimitRunnable done
+08-28 20:43:30.852  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.852  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.853  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.853  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.854  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.854  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.857  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.857  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:30.974  2461  2513 W Firestore: (25.1.1) [WatchStream]: (8717c7b) Stream closed with status: Status{code=PERMISSION_DENIED, description=Cloud Firestore API has not been used in project acn-planner-app-8821 before or it is disabled. Enable it by visiting https://console.developers.google.com/apis/api/firestore.googleapis.com/overview?project=acn-planner-app-8821 then retry. If you enabled this API recently, wait a few minutes for the action to propagate to our systems and retry., cause=null}.
+08-28 20:43:31.222 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:31.224 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [192 CELLULAR]
+08-28 20:43:31.228 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:31.229 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:31.229 18143 18464 I WifiPickerTracker: DefaultNetworkCallback : onCapabilitiesChanged
+08-28 20:43:31.229 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:31.230 18317 19173 I txpwradmin:WwanStaInfo: cacheWwanInfo subId = 2 slotId = 1
+08-28 20:43:31.230 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:31.230 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:31.231 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:31.232  7127  9242 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:31.233 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:31.233 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:31.233 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [172 CELLULAR]
+08-28 20:43:31.233 19423 20262 I BugleRcsEngine: Connected state: [1], networkType: [MOBILE] [CONTEXT thread_id=56 ]
+08-28 20:43:31.233 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:31.233 18357 18626 I PdnController<1>: onCapabilitiesChanged: network 172 networkCapabilities [ Transports: CELLULAR Capabilities: IMS&NOT_METERED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&MMTEL&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=5769Kbps LinkDnBandwidth>=51497Kbps Specifier: <TelephonyNetworkSpecifier [mSubId = 2]> AdminUids: [10406] SubscriptionIds: {2} UnderlyingNetworks: Null]
+08-28 20:43:31.233 17111 17555 D SemWifiApTrafficPriority: onCapabilitiesChanged cellular:rmnet_data7,mGapiValue:51.497Uplink: 5.769
+08-28 20:43:31.233 27200 27285 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:31.235 19423 20548 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[232a165e-5a19]>Handler" thread_id=61 ]
+08-28 20:43:31.235 23368 24064 I HBD     : i onCapabilitiesChanged network : 192 current network state : mobile 
+08-28 20:43:31.237 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:31.336 23368 23368 I HBD     : i onCapabilityChanged  setNetworkState currentNetworkState : mobile 
+08-28 20:43:31.336 23368 23368 I HBD     : f LogTag.TAG_LMDOWNLOAD network status is changed.
+08-28 20:43:31.554  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:31.732 19616 19616 I SDHMS:LOAD: type: LoadsFreqs, value: 62:0:19:1017600:1017600:1017600:825216:1363200:556800:166:222:160
+08-28 20:43:31.736 27656  1154 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:31.736 27656 30473 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:31.952  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.952  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.952  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.952  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.953  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.953  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.955  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:31.955  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:32.224 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:32.236 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:32.238 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:32.239 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:32.752  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:33.441 17720 17756 D SatelliteController: isInCarrierRoamingNbIotNtn: satellite is disabled
+08-28 20:43:33.442 17111 17586 D SemCellularStateManager: onSignalStrengthsChanged: mCellularSignalLevel=1
+08-28 20:43:33.443 17720 17756 D SatelliteController: getCarrierRoamingNtnConnectType: Falling back to global carrier config connect type: 0
+08-28 20:43:33.443 17111 17176 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:33.443 17111 17176 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:33.443 17111 17176 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:33.443 17111 17176 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:33.443 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2)
+08-28 20:43:33.443 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) lastNotifiedSignalStrength level: 0
+08-28 20:43:33.443 17720 17756 D SatelliteController: updateLastNotifiedCarrierRoamingNtnSignalStrengthAndNotify(2) currSignalStrength level: 0
+08-28 20:43:33.444 18143 18279 D MobileSignalTransitionManager: updateSignalTransition
+08-28 20:43:33.445 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:33.463 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:33.464 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:33.464 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:33.958  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:34.307  1061  1061 D io_stats: !@ Write_top(KB): kworker/u17:2:/(31993) 72
+08-28 20:43:34.321 17111 17358 I ActivityManager: Changes in 10082 19 to 19, 128 to 0
+08-28 20:43:34.330 28812 28812 I PFW     : [5213:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:34.333 17111 17176 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:34.334 17111 20211 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:34.446  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:34.660  2461  3422 D ACN_AI  : Gemini response received: {"tool": "get_next_class", "args": {}}
+08-28 20:43:34.745  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.745  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.746  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.746  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.746  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.746  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.747  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.747  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.748  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.748  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.748  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.749  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:34.857  1924  1945 D HeatmapThread: Updated plugType via uevent: 2
+08-28 20:43:34.860 16782 16782 I seh_thermal_service: getTemperaturesWithType SehTemperatureType: 3
+08-28 20:43:34.861  1826  1923 E BatteryDump: !@new_battery_dump : 4269,2,1200,4189,94,347,343,365,347,0,349,365,0,Not-charging,NO_CHARGING,Normal,Good,USB,1,Normal,0,0,9300,0x8000,0x11010000,0x0,0,0,218,v0002,0000,0000,00000000,0,0,0,0,696,4270,9398,990,0,
+08-28 20:43:34.861  1826  1826 I sehhealth-service: updateLrpSysfs: write: 348
+08-28 20:43:35.045  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.045  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.045  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.045  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.046  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.046  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.047  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.047  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.231 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:35.239 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:35.241 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:35.242 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:35.539 27656 30473 I AlarmManager: setExactAndAllowWhileIdle [name: EQMon type: 2 triggerAtMillis: 1]
+08-28 20:43:35.721 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:35.746  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.746  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.747  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.747  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:35.922  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:36.145  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.145  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.146  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.146  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.146  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.147  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.148  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.148  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:36.237 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:36.247 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:36.250 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:36.250 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:36.308  1061  1061 D io_stats: !@   8,0 r 80751883 2333311376 w 22438543 501191440 d 4079148 410078880 f 47013 378357 iot 9046292 0 th 0 0 0 pt 0 inp 0 0 650419.973
+08-28 20:43:36.497  7034  7042 I libbinder.IPCThreadState: oneway function results for code 2 on binder at 0xb400007465cadf80 will be dropped but finished with status UNKNOWN_TRANSACTION
+08-28 20:43:37.121  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:37.240 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [192 CELLULAR]
+08-28 20:43:37.243 18143 18464 I WifiPickerTracker: DefaultNetworkCallback : onCapabilitiesChanged
+08-28 20:43:37.244 23368 24064 I HBD     : i onCapabilitiesChanged network : 192 current network state : mobile 
+08-28 20:43:37.244 19423 20548 I BugleRcsEngine: handleMessage processing message:[NOTIFY_UPTIME_IGNORE_STATE_CHANGED] with [non-null]:RcsEngineImpl reference [CONTEXT log_prefix="RcsEngineImpl[DUAL_REG]:[232a165e-5a19]>Handler" thread_id=61 ]
+08-28 20:43:37.244 17111 17555 D SemWifiApTrafficPriority: onCapabilitiesChanged cellular:rmnet_data7,mGapiValue:51.678Uplink: 5.769
+08-28 20:43:37.245 19423 20262 I BugleRcsEngine: Connected state: [1], networkType: [MOBILE] [CONTEXT thread_id=56 ]
+08-28 20:43:37.246 27200 27285 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:37.246 17111 17505 W libbinder.IPCThreadState: Sending oneway calls to frozen process.
+08-28 20:43:37.247 17111 17505 D ConnectivityService: notifyType CALLBACK_CAP_CHANGED for [172 CELLULAR]
+08-28 20:43:37.247 17720 17720 D DataNetwork: getCallStateForSlot 0
+08-28 20:43:37.247 18357 18626 I PdnController<1>: onCapabilitiesChanged: network 172 networkCapabilities [ Transports: CELLULAR Capabilities: IMS&NOT_METERED&TRUSTED&NOT_VPN&VALIDATED&NOT_ROAMING&FOREGROUND&NOT_CONGESTED&NOT_SUSPENDED&NOT_VCN_MANAGED&MMTEL&NOT_BANDWIDTH_CONSTRAINED LinkUpBandwidth>=5769Kbps LinkDnBandwidth>=51678Kbps Specifier: <TelephonyNetworkSpecifier [mSubId = 2]> AdminUids: [10406] SubscriptionIds: {2} UnderlyingNetworks: Null]
+08-28 20:43:37.247 18317 19173 I txpwradmin:WwanStaInfo: cacheWwanInfo subId = 2 slotId = 1
+08-28 20:43:37.247 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:37.247 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:37.247 18317 19173 D txpwrJni: sendNetworkInfo start
+08-28 20:43:37.247 18317 19173 D txpwrJni: sendNetworkInfo RatType 0
+08-28 20:43:37.248  7127  9242 D WM-WorkConstraintsTrack: NetworkRequestConstraintController onCapabilitiesChanged callback
+08-28 20:43:37.249 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:37.345 23368 23368 I HBD     : i onCapabilityChanged  setNetworkState currentNetworkState : mobile 
+08-28 20:43:37.346 23368 23368 I HBD     : f LogTag.TAG_LMDOWNLOAD network status is changed.
+08-28 20:43:37.746 27656 30219 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:37.746 27656  1154 I NearbySharing: Network state changed: NetworkState(isRestricted=false, isOnline=true, isCongested=false, isMetered=true, isWifiConnected=false)
+08-28 20:43:38.309  1061  1061 D io_stats: !@   8,0 r 80751897 2333311868 w 22438547 501191500 d 4079148 410078880 f 47013 378357 iot 9046296 0 th 0 0 0 pt 0 inp 0 0 650421.974
+08-28 20:43:38.309  1061  1061 D io_stats: !@ Read_top(KB): earchbox:search:low(7127) 484 .gms.persistent:high(27656) 8
+08-28 20:43:38.309  1061  1061 D io_stats: !@ Write_top(KB): kworker/u17:2:/(31993) 60 soft.appmanager:high(6482) 24 vendor.samsung.:normal(1826) 8
+08-28 20:43:38.320  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:38.766  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:38.767  1785 19032 I sensors-hal: handle_sns_std_sensor_event:127, [SSC_LIGHT] A: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.11,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:39.189  1950  1950 I SurfaceFlinger: SFWD update time=650422854893073
+08-28 20:43:39.338 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:39.340 17111 19312 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:39.470 16782 17349 I thermal_core: pivot(AP) : 364, skin : 348
+08-28 20:43:39.506 16762 16987 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:39.506 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:39.506 16762 16987 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_rcv: 0
+08-28 20:43:39.507 16762 16987 D AHAL_ModulePrimary_QTI: getVendorParameters: id count: 1
+08-28 20:43:39.507 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:39.507 16762 16987 D AHAL_SecModulePrimary: onGetSECGenericParameters get temperature for g_hw_speaker_amp_temp_spk: 0
+08-28 20:43:39.510 19616 21520 I SDHMS:x : SIOP:: AP:364 BAT:347 USB:342 CHG:366 PA:368 WIFI:359 CF:356 BLK:0 SUBBAT:0 LRPTHM:349 SKIN:349 SKINF:341 SKINB:349 LRP:349 LRF:341 LRB:349 APT:341 APR:348 RCV:337 SPK:329 CHGF:341 CHGR:348 MEMF:341 MEMR:348 WIFIF:341 WIFIR:349 FCAM:342 UPSPK:351 DNSPK:342 VAP:363 VWIFI:362 AMB2:305 HIGH:0 AVGCUR:0 POWER:0
+08-28 20:43:39.510 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_spk=33
+08-28 20:43:39.511 16756 16756 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_spk=33
+08-28 20:43:39.512 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:39.512 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:39.512 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_spk
+08-28 20:43:39.512 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:39.512 16762 16987 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_spk: 33
+08-28 20:43:39.513 16762 16987 I PAL: API: pal_set_param: 1377: Enter: param id 3002
+08-28 20:43:39.513 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:39.514 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:39.514 16756 16756 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:39.515 19616 21520 I AudioManager: setParameters keyValuePairs = g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:39.516 16756 17544 D AudioFlinger: setParameters: filtered dev setParameters keyvalue g_hw_speaker_amp_temp_rcv=34
+08-28 20:43:39.516 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters enter
+08-28 20:43:39.516 16762 16987 D AHAL_HFP_QTI: hfp_set_parameters Exit
+08-28 20:43:39.516 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: configured g_hw_speaker_amp_temp_rcv
+08-28 20:43:39.516 16762 16987 D AHAL_SecModulePrimary: processSetVendorParameters: handler set on Feature:0
+08-28 20:43:39.516 16762 16987 D AHAL_SecModulePrimary: onSetSECGenericParameters set temperature for g_hw_speaker_amp_temp_rcv: 34
+08-28 20:43:39.516 16762 16987 I PAL: API: pal_set_param: 1377: Enter: param id 3001
+08-28 20:43:39.516 16762 16987 I PAL: ResourceManager: getActiveStream_l: 6587: no active streams found for device 3 ret -2
+08-28 20:43:39.516 16756 17544 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:39.517 16756 17544 E DeviceHalAidl: Function: parseAndSetVendorParameters Line: 414 Failed 
+08-28 20:43:39.518  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 69999 us
+08-28 20:43:40.310  1061  1061 D io_stats: !@   8,0 r 80751900 2333312312 w 22438563 501192252 d 4079148 410078880 f 47013 378357 iot 9046304 0 th 0 0 0 pt 0 inp 0 0 650423.975
+08-28 20:43:40.438 17111 17659 D NetdEventListenerService: DNS Requested by 192, 10166(com.microsoft.appmanager), SUCCESS, 41ms
+08-28 20:43:40.542 17111 17390 D ActivityManager: Received BROADCAST intent 0x19ad635 Key{broadcastIntent pkg=com.google.android.gms/earthquake_detection intent=act=com.google.android.location.intent.action.ONLINE_CHECKIN_ALARM xflg=0x4 pkg=com.google.android.gms flags=0x2000000 u=0} requestCode=0 sent=0 from uid 1000
+08-28 20:43:40.546 27656 30219 I AlarmManager: setExactAndAllowWhileIdle [name: EQMon type: 2 triggerAtMillis: 1124107079]
+08-28 20:43:40.546 27656  1154 E LoadedApk: Exception : java.lang.NullPointerException: Attempt to invoke virtual method 'boolean android.os.Looper.isPerfLogEnable()' on a null object reference
+08-28 20:43:40.559 17111 17578 D BackgroundInstallControlService: Package event received: 0
+08-28 20:43:40.581  1785  1785 I sensors-hal: set_config:60, sample_period_ns is adjusted to 20000000 based on min/max delay_ns
+08-28 20:43:40.581  1785  1785 I sensors-hal: batch:369, android.sensor.linear_acceleration/101, period=20000000, max_latency=0 request completed
+08-28 20:43:40.581  1785  1785 I sensors-hal: activate:306, android.sensor.linear_acceleration/101 en=1
+08-28 20:43:40.581  1785  1785 I sensors-hal: acquire_qsh_interface:140, acquire_qsh_interface with sensor_id 27 , conn_type 3 
+08-28 20:43:40.582  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.582  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.582  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.582  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.583  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.583  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.584  1785  1785 I sensors-hal: qsh_qmi:34, qsh_qmi
+08-28 20:43:40.584  1785  1785 I sensors-hal: send_sync_sensor_request:515, send sync request
+08-28 20:43:40.584  1785  1785 I sensors-hal: send_sync_sensor_request:544, wait for notification of response
+08-28 20:43:40.584  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.584  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.586  1785  3437 I sensors-hal: qsh_conn_resp_cb:978, resp_value = 0 for gravity 
+08-28 20:43:40.586  1785  1785 I sensors-hal: send_sync_sensor_request:550, takes 1 ms to receive the response with 0
+08-28 20:43:40.586  1785  1785 I sensors-hal: activate:336, android.sensor.linear_acceleration/101 en=1 completed
+08-28 20:43:40.586 31108 31133 D SensorManager: registerListener :: 101, linear_acceleration, 20000, 0, 
+08-28 20:43:40.587  1785  1785 I sensors-hal: set_config:60, sample_period_ns is adjusted to 20000000 based on min/max delay_ns
+08-28 20:43:40.587  1785  1785 I sensors-hal: batch:369, android.sensor.rotation_vector/111, period=20000000, max_latency=0 request completed
+08-28 20:43:40.587  1785  1785 I sensors-hal: activate:306, android.sensor.rotation_vector/111 en=1
+08-28 20:43:40.587  1785  1785 I sensors-hal: acquire_qsh_interface:140, acquire_qsh_interface with sensor_id 16 , conn_type 3 
+08-28 20:43:40.588  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.588  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.588  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.588  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.589  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.589  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.589  1785  1785 I sensors-hal: qsh_qmi:34, qsh_qmi
+08-28 20:43:40.589  1785  1785 I sensors-hal: send_sync_sensor_request:515, send sync request
+08-28 20:43:40.589  1785  1785 I sensors-hal: send_sync_sensor_request:544, wait for notification of response
+08-28 20:43:40.589  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.590  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.590  1785  3439 I sensors-hal: qsh_conn_resp_cb:978, resp_value = 0 for rotv 
+08-28 20:43:40.590  1785  1785 I sensors-hal: send_sync_sensor_request:550, takes 1 ms to receive the response with 0
+08-28 20:43:40.590  1785  1785 I sensors-hal: activate:336, android.sensor.rotation_vector/111 en=1 completed
+08-28 20:43:40.591 31108 31133 D SensorManager: registerListener :: 111, Rotation Vector  Non-wakeup, 20000, 0, 
+08-28 20:43:40.595 17111 19312 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:1
+08-28 20:43:40.595 17111 19312 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:40.598 31108 31133 W libc    : Access denied finding property "persist.adb.tls_server.enable"
+08-28 20:43:40.598 31108 31133 W libc    : Access denied finding property "service.adb.tls.port"
+08-28 20:43:40.604 17111 17659 D NetdEventListenerService: DNS Requested by 192, 10283(com.google.android.gms), SUCCESS, 0ms
+08-28 20:43:40.628  1785  3437 I sensors-hal: qsh_conn_event_cb:900, SCHED_FIFO(10) for qmi_cbk
+08-28 20:43:40.648  1785  3439 I sensors-hal: qsh_conn_event_cb:900, SCHED_FIFO(10) for qmi_cbk
+08-28 20:43:40.661  1785 19032 I sensors-hal: handle_sns_client_event:202, auto_rotation_debug_2 mode,255, type,1,0 acc,-0.172,8.538,4.948, ar,0, ver,15, pedo,1,e,1,i,3
+08-28 20:43:40.677 17111 17659 D NetdEventListenerService: DNS Requested by 192, 10283(com.google.android.gms), SUCCESS, 32ms
+08-28 20:43:40.716  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:40.891 17111 20211 D PowerManagerService: [api] setMasterBrightnessLimit : lowerLimit : -1  upperLimit : 1275  mMasterBrightnessLimitPeriod : 200 (uid: 1000 pid: 19616)
+08-28 20:43:40.894 17111 17311 D PowerManagerService: [api] BrightnessLimitRunnable done
+08-28 20:43:40.897  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.897  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.897  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.897  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.898  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.898  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.899  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.899  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.899  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.899  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.900  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.900  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.901  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.901  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.901  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.901  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.902  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.902  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.902  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:40.902  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.016  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:41.204  1785  1785 I sensors-hal: set_config:60, sample_period_ns is adjusted to 20000000 based on min/max delay_ns
+08-28 20:43:41.204  1785  1785 I sensors-hal: batch:369, android.sensor.accelerometer/11, period=20000000, max_latency=0 request completed
+08-28 20:43:41.204  1785  1785 I sensors-hal: activate:306, android.sensor.accelerometer/11 en=1
+08-28 20:43:41.205  1785  1785 I sensors-hal: acquire_qsh_interface:140, acquire_qsh_interface with sensor_id 37 , conn_type 3 
+08-28 20:43:41.206  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.206  1785  1785 I sensors-hal: qsh_qmi:34, qsh_qmi
+08-28 20:43:41.206  1785  1785 I sensors-hal: send_sensor_config_request:582, resampler is used, set resampler config
+08-28 20:43:41.206  1785  1785 I sensors-hal: send_sync_sensor_request:515, send sync request
+08-28 20:43:41.206  1785  1785 I sensors-hal: send_sync_sensor_request:544, wait for notification of response
+08-28 20:43:41.207  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.207  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.207  1785  3456 I sensors-hal: qsh_conn_resp_cb:978, resp_value = 0 for accel 
+08-28 20:43:41.207  1785  1785 I sensors-hal: send_sync_sensor_request:550, takes 0 ms to receive the response with 0
+08-28 20:43:41.207  1785  1785 I sensors-hal: activate:336, android.sensor.accelerometer/11 en=1 completed
+08-28 20:43:41.207 27656  1154 D SensorManager: registerListener :: 11, lsm6dsv_0 Accelerometer Non-wakeup, 20000, 0, 
+08-28 20:43:41.228  1785  3456 I sensors-hal: handle_sns_client_event:379, [0][0] accel_sample [-0.145,  8.506,  5.021] 1120507749534559
+08-28 20:43:41.248 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:41.257 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:41.260 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:41.260 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:41.270  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 0
+08-28 20:43:41.278  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:41.342  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:41.446 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:6
+08-28 20:43:41.446 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:41.447 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:4
+08-28 20:43:41.448 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:41.449 17111 17603 I SemWifiIntelligentTrainingManager: Tr. cond. check: false / 2 (2) / true / 0 (1)
+08-28 20:43:41.449 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]id:6
+08-28 20:43:41.449 17111 17603 I BatteryService_BatteryPropertiesRegistrar: [getProperty]prop.long:-9223372036854775808 ,prop.string:null
+08-28 20:43:41.811 19616 19616 I SDHMS:LOAD: type: LoadsFreqs, value: 53:0:18:1017600:1017600:1017600:654720:1363200:556800:171:222:160
+08-28 20:43:41.999  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:41.999  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.000  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.000  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.000  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.001  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.002  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.002  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.003  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.003  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.004  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.004  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:42.311  1061  1061 D io_stats: !@   8,0 r 80751925 2333312652 w 22438794 501193788 d 4079148 410078880 f 47013 378357 iot 9046324 0 th 0 0 0 pt 0 inp 0 0 650425.977
+08-28 20:43:42.312  1061  1061 D io_stats: !@ Read_top(KB): appmanager:auth:low(2889) 444 .gms.persistent:high(27656) 340
+08-28 20:43:42.312  1061  1061 D io_stats: !@ Write_top(KB): f2fs_ckpt-254:7:/(1283) 1148 system_server:normal(17111) 712 .gms.persistent:high(27656) 188
+08-28 20:43:43.086  1785 12966 I sensors-hal: handle_sns_std_sensor_event:409, [SSC_LIGHT] P: 0(0),c:0,b:30,m:13,cl:0,l:0,s:0,l0:64,l1:0,s0:0,s1:0,acl:1,opr:0.12,f(r):91,u(bl):68,if:91,wi:0,si:0,0(N:0)
+08-28 20:43:43.096  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.097  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.098  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.098  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.099  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.099  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.101  1759  1868 E minksocket: MinkIPC ERROR: ( 1759:1868 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.101  1759  1880 E minksocket: MinkIPC ERROR: ( 1759:1880 ) MinkIPC_preProcess:272 Client down, but cannot find corresponding minksession
+08-28 20:43:43.231  1785  3456 I sensors-hal: handle_sns_client_event:379, [0][94] accel_sample [-0.137,  8.517,  4.965] 1120509752225080
+08-28 20:43:43.259 18754 18870 I HoneySpace.StatusIconTracker: invokeEvent() called with: event = Mobile(bundle=Bundle[mParcelledData.dataSize=256])
+08-28 20:43:43.264 18143 18143 W RefactorFlag: New code path expects SceneContainerFlag to be enabled.
+08-28 20:43:43.267 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=androidx.compose.ui.platform.AndroidComposeView{5b42cff VFED..... ........ 0,0-99,56 aid=10}, caller=android.view.ViewGroup.setRequestedFrameRate:10045 androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:140 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 
+08-28 20:43:43.268 18143 18143 I View    : setRequestedFrameRate frameRate=NaN, this=android.view.View{c258e8f V.ED..... ......I. 0,0-0,0}, caller=androidx.compose.ui.platform.Api35Impl.setRequestedFrameRate:1 androidx.compose.ui.platform.AndroidComposeView.dispatchDraw:150 android.view.View.draw:26758 android.view.View.updateDisplayListIfDirty:25577 android.view.View.draw:26477 
+08-28 20:43:43.269  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:43:43.278  1950  2161 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:43.351  1817  2130 I SDM     : DisplayBase::CommitThread: Received idle timeout, panel: cmd, timeout: 70000 us
+08-28 20:43:44.313  1061  1061 D io_stats: !@   8,0 r 80751925 2333312652 w 22438797 501193800 d 4079148 410078880 f 47013 378357 iot 9046328 0 th 0 0 0 pt 0 inp 0 0 650427.978
+08-28 20:43:44.326 17111 17388 D ActivityManager: freezing 28812 com.samsung.android.widget.pictureframe
+08-28 20:43:44.329 17111 17390 D ActivityManager: Received BROADCAST intent 0xfb7b9c Key{broadcastIntent pkg=com.samsung.android.widget.pictureframe intent=xflg=0x4 cmp=com.samsung.android.widget.pictureframe/.glance.helper.ExactRepeatingAlarmReceiver flags=0x2000000 u=0} requestCode=1001 sent=0 from uid 1000
+08-28 20:43:44.331 17111 17269 D ActivityManager: sync unfroze 28812 com.samsung.android.widget.pictureframe for 3
+08-28 20:43:44.333 17111 17269 I ActivityManager: Changes in 10082 19 to 11, 0 to 384
+08-28 20:43:44.337 17111 18263 I AppWidgetServiceImpl: getAppWidgetInfo() 9, from 0
+08-28 20:43:44.337 28812 28812 I PFW     : [5220:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:44.338 28812 28812 I PFW     : [5221:   WidgetApplication] onTrimMemory(40) + 0
+08-28 20:43:44.338 17111 20211 I AppWidgetServiceImpl: getAppWidgetInfo() 19, from 0
+08-28 20:43:44.339 17111 19312 I ActivityManager: Changes in 10082 11 to 19, 384 to 128
+08-28 20:43:44.340 28812 26093 I PFW_G   : [5222:  WidgetAlarmManager] setup alarm one minute
+08-28 20:43:44.343  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 1
+08-28 20:43:44.352  1950  2810 I SurfaceFlinger: Current= 120, Period= 120, Distance= 120
+08-28 20:43:44.880 23907 23907 I adbd    : adbd service requested 'shell,v2:export ANDROID_LOG_TAGS=''; exec logcat '-d' '-t' '1000''

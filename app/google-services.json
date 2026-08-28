@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "502237981148",
+    "project_id": "acn-planner-app-8821",
+    "storage_bucket": "acn-planner-app-8821.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:502237981148:android:f8ccf705071ecd0e9a0719",
+        "android_client_info": {
+          "package_name": "in.ac.amrita.chen.acnplanner"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjxCyMutu6kOzos_Yri3sq4q5z2tXEHMY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
