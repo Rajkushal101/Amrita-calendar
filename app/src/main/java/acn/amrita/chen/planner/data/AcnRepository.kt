@@ -8,6 +8,7 @@ import java.time.ZoneId
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ListenerRegistration
 import com.google.firebase.auth.FirebaseAuth
+import kotlinx.coroutines.tasks.await
 
 /**
  * Central repository — single source of truth for all data.
@@ -99,6 +100,24 @@ class AcnRepository(private val db: AppDatabase) {
             )
         }
         classSessionDao.insertSessions(newSessions)
+
+        // Push to Firestore to ensure persistence across restarts (in background)
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+            try {
+                val snapshot = firestore.collection("class_sessions").get().await()
+                val batch = firestore.batch()
+                snapshot.documents.forEach { doc ->
+                    batch.delete(doc.reference)
+                }
+                newSessions.forEach { session ->
+                    val ref = firestore.collection("class_sessions").document()
+                    batch.set(ref, session.copy(firestoreId = ref.id))
+                }
+                batch.commit().await()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
     }
 
     fun startClassSessionsSync() {
@@ -242,6 +261,11 @@ class AcnRepository(private val db: AppDatabase) {
         return (attended + attendNext).toFloat() / (totalClasses + futureClasses) * 100f
     }
 
+    suspend fun overrideAttendance(code: String, attended: Int, total: Int) {
+        val pct = if (total > 0) (attended.toFloat() / total) * 100f else 0f
+        subjectDao.updateAttendanceByCode(code, total, attended, pct)
+    }
+
     // ── Assignments ─────────────────────────────────────────────
 
     fun getPendingAssignments(): Flow<List<Assignment>> =
@@ -261,6 +285,8 @@ class AcnRepository(private val db: AppDatabase) {
     fun getAllEvents(): Flow<List<Event>> = eventDao.getAllEvents()
     
     suspend fun addEvent(event: Event) = eventDao.insertEvent(event)
+
+    suspend fun deleteEvent(eventId: Int) = eventDao.deleteEvent(eventId)
 
     fun getUpcomingExams(): Flow<List<Event>> = eventDao.getAllEvents().map { events ->
         val nowMillis = System.currentTimeMillis()
@@ -311,8 +337,33 @@ class AcnRepository(private val db: AppDatabase) {
 
     fun getAllAnnouncements(): Flow<List<Announcement>> = announcementDao.getAllAnnouncements()
 
-    suspend fun addAnnouncement(announcement: Announcement) =
-        announcementDao.insertAnnouncement(announcement)
+    suspend fun addAnnouncement(announcement: Announcement) {
+        val id = announcementDao.insertAnnouncement(announcement)
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+            try {
+                val ref = firestore.collection("announcements").document()
+                ref.set(announcement.copy(id = id.toInt(), firestoreId = ref.id)).await()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
+        
+    suspend fun deleteAllAnnouncements() {
+        announcementDao.deleteAllAnnouncements()
+        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
+            try {
+                val snapshot = firestore.collection("announcements").get().await()
+                val batch = firestore.batch()
+                snapshot.documents.forEach { doc ->
+                    batch.delete(doc.reference)
+                }
+                batch.commit().await()
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+        }
+    }
         
     fun startAnnouncementsSync() {
         announcementsListener?.remove()

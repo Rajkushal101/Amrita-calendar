@@ -17,7 +17,6 @@ import androidx.compose.material.icons.filled.AutoAwesome
 sealed class BottomNavItem(var title: String, var icon: ImageVector, var route: String) {
     object Home : BottomNavItem("Home", Icons.Filled.Home, "home")
     object Calendar : BottomNavItem("Calendar", Icons.Filled.DateRange, "calendar")
-    object Assistant : BottomNavItem("AI", Icons.Filled.AutoAwesome, "assistant")
     object Timetable : BottomNavItem("Timetable", Icons.Filled.List, "timetable")
     object Subjects : BottomNavItem("Subjects", Icons.Filled.Star, "subjects")
     object Announcements : BottomNavItem("Notices", Icons.Filled.Notifications, "announcements")
@@ -28,7 +27,6 @@ fun BottomNavigationBar(navController: NavController) {
     val items = listOf(
         BottomNavItem.Home,
         BottomNavItem.Calendar,
-        BottomNavItem.Assistant,
         BottomNavItem.Timetable,
         BottomNavItem.Subjects,
         BottomNavItem.Announcements

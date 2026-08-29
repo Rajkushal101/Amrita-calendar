@@ -174,6 +174,8 @@ fun AssistantScreenContent(
                             is ChatMessage.User     -> UserBubble(msg.text, msg.attachmentCount)
                             is ChatMessage.Ai       -> AiBubble(msg.text)
                             is ChatMessage.ToolCall -> ToolCallIndicator(msg.toolName, msg.description)
+                            is ChatMessage.EventCard -> EventCardBubble(msg.title, msg.date, msg.type)
+                            is ChatMessage.TaskCard -> TaskCardBubble(msg.title, msg.due, msg.priority)
                             ChatMessage.Thinking    -> ThinkingIndicator()
                         }
                     }
@@ -423,6 +425,69 @@ private fun ThinkingIndicator() {
                             .background(TextSec.copy(alpha = 0.3f + alpha * 0.7f))
                     )
                 }
+            }
+        }
+    }
+}
+
+@Composable
+private fun EventCardBubble(title: String, date: String, type: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Spacer(Modifier.width(36.dp))
+        Card(
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = AcnCardAlt),
+            modifier = Modifier.widthIn(max = 280.dp).padding(vertical = 4.dp)
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Default.Event, null, tint = AcnRed, modifier = Modifier.size(16.dp))
+                    Spacer(Modifier.width(6.dp))
+                    Text("Event Created", fontSize = 12.sp, color = TextSec, fontWeight = FontWeight.Bold)
+                }
+                Spacer(Modifier.height(8.dp))
+                Text(title, fontSize = 15.sp, color = TextPrimary, fontWeight = FontWeight.SemiBold)
+                Spacer(Modifier.height(4.dp))
+                Text(date, fontSize = 13.sp, color = TextSec)
+                Spacer(Modifier.height(4.dp))
+                Text(type, fontSize = 11.sp, color = Color(0xFF4CAF50), fontWeight = FontWeight.Bold)
+            }
+        }
+    }
+}
+
+@Composable
+private fun TaskCardBubble(title: String, due: String, priority: String) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.Start
+    ) {
+        Spacer(Modifier.width(36.dp))
+        Card(
+            shape = RoundedCornerShape(12.dp),
+            colors = CardDefaults.cardColors(containerColor = AcnCardAlt),
+            modifier = Modifier.widthIn(max = 280.dp).padding(vertical = 4.dp)
+        ) {
+            Column(modifier = Modifier.padding(12.dp)) {
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Icon(Icons.Default.Task, null, tint = Color(0xFF2196F3), modifier = Modifier.size(16.dp))
+                    Spacer(Modifier.width(6.dp))
+                    Text("Task Added", fontSize = 12.sp, color = TextSec, fontWeight = FontWeight.Bold)
+                }
+                Spacer(Modifier.height(8.dp))
+                Text(title, fontSize = 15.sp, color = TextPrimary, fontWeight = FontWeight.SemiBold)
+                Spacer(Modifier.height(4.dp))
+                Text("Due: $due", fontSize = 13.sp, color = TextSec)
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    priority,
+                    fontSize = 11.sp,
+                    color = if (priority == "HIGH" || priority == "URGENT") AcnRed else Color(0xFFFFC107),
+                    fontWeight = FontWeight.Bold
+                )
             }
         }
     }

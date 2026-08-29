@@ -9,12 +9,39 @@ import acn.amrita.chen.planner.data.AppDatabase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
+import acn.amrita.chen.planner.data.AppPreferences
+
+import kotlinx.coroutines.flow.take
 
 sealed class ChatMessage {
     data class User(val text: String, val attachmentCount: Int = 0) : ChatMessage()
     data class Ai(val text: String) : ChatMessage()
     data class ToolCall(val toolName: String, val description: String) : ChatMessage()
     object Thinking : ChatMessage()
+    data class EventCard(val title: String, val date: String, val type: String) : ChatMessage()
+    data class TaskCard(val title: String, val due: String, val priority: String) : ChatMessage()
+}
+
+fun ChatMessage.toEntity(): acn.amrita.chen.planner.data.ChatMessageEntity? {
+    return when (this) {
+        is ChatMessage.User -> acn.amrita.chen.planner.data.ChatMessageEntity(type = "USER", content = this.text, extra1 = this.attachmentCount.toString())
+        is ChatMessage.Ai -> acn.amrita.chen.planner.data.ChatMessageEntity(type = "AI", content = this.text)
+        is ChatMessage.ToolCall -> acn.amrita.chen.planner.data.ChatMessageEntity(type = "TOOL_CALL", content = this.toolName, extra1 = this.description)
+        is ChatMessage.EventCard -> acn.amrita.chen.planner.data.ChatMessageEntity(type = "EVENT_CARD", content = this.title, extra1 = this.date, extra2 = this.type)
+        is ChatMessage.TaskCard -> acn.amrita.chen.planner.data.ChatMessageEntity(type = "TASK_CARD", content = this.title, extra1 = this.due, extra2 = this.priority)
+        ChatMessage.Thinking -> null // Don't persist thinking state
+    }
+}
+
+fun acn.amrita.chen.planner.data.ChatMessageEntity.toDomain(): ChatMessage {
+    return when (type) {
+        "USER" -> ChatMessage.User(content, extra1.toIntOrNull() ?: 0)
+        "AI" -> ChatMessage.Ai(content)
+        "TOOL_CALL" -> ChatMessage.ToolCall(content, extra1)
+        "EVENT_CARD" -> ChatMessage.EventCard(content, extra1, extra2)
+        "TASK_CARD" -> ChatMessage.TaskCard(content, extra1, extra2)
+        else -> ChatMessage.Ai(content)
+    }
 }
 
 class AssistantViewModel(application: Application) : AndroidViewModel(application) {
@@ -24,12 +51,11 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
 
     private val prefs = application.getSharedPreferences("acn_prefs", android.content.Context.MODE_PRIVATE)
     private val userRole = prefs.getString("user_role", "STUDENT") ?: "STUDENT"
+    private val appPreferences = AppPreferences(application)
 
     private val toolExecutor = AiToolExecutor(application, repository, userRole)
 
-    private val _messages = MutableStateFlow<List<ChatMessage>>(
-        listOf(ChatMessage.Ai("Hi! I'm your ACN Planner AI Assistant. ✨\n\nI can help with your schedule, attendance, assignments, and exams. Try asking:\n• \"What's my next class?\"\n• \"Show my attendance\"\n• \"Any upcoming exams?\""))
-    )
+    private val _messages = MutableStateFlow<List<ChatMessage>>(emptyList())
     val messages: StateFlow<List<ChatMessage>> = _messages
 
     private val _isApiKeySet = MutableStateFlow(ApiKeyManager.hasApiKey(application))
@@ -37,6 +63,34 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
 
     private val _isLoading = MutableStateFlow(false)
     val isLoading: StateFlow<Boolean> = _isLoading
+
+    private val _navigationEvents = kotlinx.coroutines.flow.MutableSharedFlow<String>()
+    val navigationEvents: kotlinx.coroutines.flow.SharedFlow<String> = _navigationEvents
+    
+    var currentRoute: String = "home"
+    
+    init {
+        viewModelScope.launch {
+            db.chatMessageDao().getAllMessages().take(1).collect { entities ->
+                if (entities.isEmpty()) {
+                    val initial = ChatMessage.Ai("Hi! I'm your ACN Planner AI Assistant. ✨\n\nI can help with your schedule, attendance, assignments, and exams. Try asking:\n• \"What's my next class?\"\n• \"Show my attendance\"\n• \"Any upcoming exams?\"")
+                    _messages.value = listOf(initial)
+                    initial.toEntity()?.let { db.chatMessageDao().insertMessage(it) }
+                } else {
+                    _messages.value = entities.map { it.toDomain() }
+                }
+            }
+        }
+    }
+
+    private fun addMessage(msg: ChatMessage) {
+        val current = _messages.value.toMutableList()
+        current.add(msg)
+        _messages.value = current
+        viewModelScope.launch {
+            msg.toEntity()?.let { db.chatMessageDao().insertMessage(it) }
+        }
+    }
 
     fun setApiKey(apiKey: String) {
         ApiKeyManager.saveApiKey(getApplication(), apiKey)
@@ -49,15 +103,19 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
     }
 
     fun sendMessage(userMessage: String, uris: List<android.net.Uri> = emptyList()) {
-        if (userMessage.isBlank() && uris.isEmpty()) return
-
         val currentMessages = _messages.value.toMutableList()
-        currentMessages.add(ChatMessage.User(userMessage, uris.size))
-        _messages.value = currentMessages.toList()
+        if (userMessage.isNotBlank() || uris.isNotEmpty()) {
+            val userMsg = ChatMessage.User(userMessage, uris.size)
+            currentMessages.add(userMsg)
+            _messages.value = currentMessages.toList()
+            viewModelScope.launch { userMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
+        }
 
         if (!_isApiKeySet.value) {
-            currentMessages.add(ChatMessage.Ai("Please set your Gemini API key first to enable AI features. Tap the key icon above to enter your free API key from ai.google.dev"))
+            val errorMsg = ChatMessage.Ai("Please set your Gemini API key first to enable AI features. Tap the key icon above to enter your free API key from ai.google.dev")
+            currentMessages.add(errorMsg)
             _messages.value = currentMessages.toList()
+            viewModelScope.launch { errorMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
             return
         }
 
@@ -71,9 +129,11 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                 val localResponse = tryLocalToolResponse(userMessage)
                 if (localResponse != null) {
                     currentMessages.remove(ChatMessage.Thinking)
-                    currentMessages.add(ChatMessage.Ai(localResponse))
+                    val aiMsg = ChatMessage.Ai(localResponse)
+                    currentMessages.add(aiMsg)
                     _messages.value = currentMessages.toList()
                     _isLoading.value = false
+                    viewModelScope.launch { aiMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
                     return@launch
                 }
 
@@ -83,6 +143,9 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                 
                 val systemPrompt = """
                     You are the ACN Planner AI Assistant for Amrita Chennai students.
+                    You are an Omnipresent Agent with access to the entire app.
+                    The user is currently viewing the following screen: $currentRoute
+                    
                     You have access to the following local tools:
                     - get_today_schedule
                     - get_next_class
@@ -92,15 +155,25 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                     - get_announcements (args: limit)
                     - get_semester_progress
                     - get_attendance_what_if (args: subjectCode, attend: boolean)
-                    - create_reminder (args: title, timeString)
-                    - create_personal_event (args: title, dateString, type, timeString)
+                    - add_task (args: subjectId:Int, title:String, dueDateString:String(YYYY-MM-DD), priority:String(LOW, MEDIUM, HIGH, URGENT))
+                    - mark_task_done (args: assignmentId:Int)
+                    - create_event (args: title, dateString(YYYY-MM-DD), type, timeString)
+                    - delete_event (args: eventId:Int)
+                    - add_subject (args: code, name)
+                    - override_attendance (args: code, attended:Int, total:Int)
+                    - clear_all_notifications (no args)
                     - cancel_class (args: sessionId, reason)
                     - post_announcement (args: title, body)
                     - generate_study_plan (no args)
                     - save_timetable (args: entries - JSON array string of objects with {day:Int(1=Mon), startTime:String(HH:mm), endTime:String(HH:mm), subjectCode:String, subjectName:String, room:String})
+                    - navigate_to (args: route - one of: home, calendar, subjects, announcements, timetable, assignments)
+                    - update_theme (args: primaryColorHex: String?, isDarkMode: Boolean?)
                     
                     If the user asks something that can be answered using one of these tools, respond with ONLY a JSON object containing the tool call. For example:
                     {"tool": "get_attendance", "args": {"subjectCode": "19CSE201"}}
+                    
+                    CRITICAL: If the user asks to navigate, go to, or open a specific screen, you MUST use the `navigate_to` tool.
+                    CRITICAL: If the user uploads an image of a timetable or schedule and asks you to parse, save, or extract it, you MUST respond with ONLY the JSON object for the `save_timetable` tool call. DO NOT output any conversational text or markdown before or after the JSON.
                     
                     If no tool is needed, just respond naturally to the user. Be concise and helpful.
                 """.trimIndent()
@@ -138,10 +211,21 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                     resp.text ?: ""
                 }
 
+                // Clean up possible markdown code blocks around JSON
+                var cleanResponse = responseText.trim()
+                if (cleanResponse.startsWith("```json")) {
+                    cleanResponse = cleanResponse.removePrefix("```json").trim()
+                } else if (cleanResponse.startsWith("```")) {
+                    cleanResponse = cleanResponse.removePrefix("```").trim()
+                }
+                if (cleanResponse.endsWith("```")) {
+                    cleanResponse = cleanResponse.removeSuffix("```").trim()
+                }
+
                 // Parse if it's a tool call
-                if (responseText.trim().startsWith("{") && responseText.trim().endsWith("}")) {
+                if (cleanResponse.startsWith("{") && cleanResponse.endsWith("}")) {
                     try {
-                        val json = org.json.JSONObject(responseText.trim())
+                        val json = org.json.JSONObject(cleanResponse)
                         if (json.has("tool")) {
                             val tool = json.getString("tool")
                             val args = mutableMapOf<String, String>()
@@ -154,9 +238,11 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                             
                             // Show tool call indicator
                             currentMessages.remove(ChatMessage.Thinking)
-                            currentMessages.add(ChatMessage.ToolCall(tool, "Executing internal tool..."))
+                            val toolMsg = ChatMessage.ToolCall(tool, "Executing internal tool...")
+                            currentMessages.add(toolMsg)
                             currentMessages.add(ChatMessage.Thinking)
                             _messages.value = currentMessages.toList()
+                            viewModelScope.launch { toolMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
 
                             val toolResult = if (tool == "save_timetable") {
                                 try {
@@ -188,30 +274,67 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                                 } catch (e: Exception) {
                                     "Failed to save timetable: ${e.message}"
                                 }
+                            } else if (tool == "navigate_to") {
+                                val route = args["route"] ?: "home"
+                                _navigationEvents.emit(route)
+                                "Navigated successfully to $route"
+                            } else if (tool == "update_theme") {
+                                val colorHex = if (args.containsKey("primaryColorHex")) args["primaryColorHex"] else null
+                                val isDark = if (args.containsKey("isDarkMode")) args["isDarkMode"]?.toBooleanStrictOrNull() else null
+                                appPreferences.updateTheme(colorHex, isDark)
+                                "App theme updated."
                             } else {
-                                toolExecutor.execute(tool, args)
+                                val result = toolExecutor.execute(tool, args)
+                                // Inject custom UI cards for creation tools
+                                if (tool == "create_event" && result.contains("\"success\": true")) {
+                                    val title = args["title"] ?: "New Event"
+                                    val dateStr = args["dateString"] ?: "Date unknown"
+                                    val type = args["type"] ?: "PERSONAL"
+                                    val eventMsg = ChatMessage.EventCard(title, dateStr, type)
+                                    currentMessages.add(eventMsg)
+                                    viewModelScope.launch { eventMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
+                                } else if (tool == "add_task" && result.contains("\"success\": true")) {
+                                    val title = args["title"] ?: "New Task"
+                                    val due = args["dueDateString"] ?: "Due unknown"
+                                    val priority = args["priority"] ?: "MEDIUM"
+                                    val taskMsg = ChatMessage.TaskCard(title, due, priority)
+                                    currentMessages.add(taskMsg)
+                                    viewModelScope.launch { taskMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
+                                }
+                                result
                             }
                             
                             // Send tool result back to Gemini for natural language formulation
                             val finalPrompt = "User query: $userMessage\n\nTool Result: $toolResult\n\nExplain this to the user naturally and concisely."
-                            val finalResponseText = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
-                                val finalResp = generativeModel.generateContent(finalPrompt)
-                                finalResp.text ?: ""
+                            val finalResp = kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
+                                generativeModel.generateContent(finalPrompt)
                             }
+                            val finalAiMsg = ChatMessage.Ai(finalResp.text ?: "")
                             currentMessages.remove(ChatMessage.Thinking)
-                            // Optionally remove the tool call indicator, but let's keep it for visual debug
-                            currentMessages.add(ChatMessage.Ai(finalResponseText))
+                            currentMessages.add(finalAiMsg)
+                            _messages.value = currentMessages.toList()
+                            viewModelScope.launch { finalAiMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
                         } else {
+                            val aiMsg = ChatMessage.Ai(cleanResponse)
                             currentMessages.remove(ChatMessage.Thinking)
-                            currentMessages.add(ChatMessage.Ai(responseText))
+                            currentMessages.add(aiMsg)
+                            _messages.value = currentMessages.toList()
+                            viewModelScope.launch { aiMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
                         }
                     } catch (e: Exception) {
+                        Log.e("ACN_AI", "Tool execution failed", e)
+                        val errorMsg = ChatMessage.Ai("Tool execution failed: ${e.message}")
                         currentMessages.remove(ChatMessage.Thinking)
-                        currentMessages.add(ChatMessage.Ai(responseText))
+                        currentMessages.add(errorMsg)
+                        _messages.value = currentMessages.toList()
+                        viewModelScope.launch { errorMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
                     }
                 } else {
+                    val aiMsg = ChatMessage.Ai(cleanResponse)
                     currentMessages.remove(ChatMessage.Thinking)
-                    currentMessages.add(ChatMessage.Ai(responseText))
+                    currentMessages.add(aiMsg)
+                    _messages.value = currentMessages.toList()
+                    viewModelScope.launch { aiMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
                 }
                 
                 _messages.value = currentMessages.toList()

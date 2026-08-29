@@ -14,6 +14,8 @@ import acn.amrita.chen.planner.ai.AttendanceIntelligence
 import acn.amrita.chen.planner.ai.AttendanceAnalysis
 import acn.amrita.chen.planner.data.CampusChange
 import acn.amrita.chen.planner.data.ChangeType
+import acn.amrita.chen.planner.data.AppPreferences
+import acn.amrita.chen.planner.data.ThemeConfig
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -28,6 +30,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val subjectDao = db.subjectDao()
 
     private val prefs = application.getSharedPreferences("acn_prefs", android.content.Context.MODE_PRIVATE)
+    val appPreferences = AppPreferences(application)
     private val auth = FirebaseAuth.getInstance()
 
     init {

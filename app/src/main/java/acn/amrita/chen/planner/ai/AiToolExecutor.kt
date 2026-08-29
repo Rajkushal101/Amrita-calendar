@@ -13,6 +13,10 @@ import android.content.Intent
 import android.app.AlarmManager
 import android.app.PendingIntent
 import acn.amrita.chen.planner.data.Event
+import acn.amrita.chen.planner.data.Assignment
+import acn.amrita.chen.planner.data.AssignmentPriority
+import acn.amrita.chen.planner.data.AssignmentStatus
+import acn.amrita.chen.planner.data.Subject
 import java.time.LocalDate
 import java.time.LocalTime
 
@@ -40,16 +44,44 @@ class AiToolExecutor(
                     args["subjectCode"] ?: return error("subjectCode required"),
                     args["attend"]?.toBoolean() ?: true
                 )
-                "create_reminder" -> executeCreateReminder(
-                    args["title"] ?: "Reminder",
-                    args["timeString"] ?: return error("timeString required (HH:mm)")
+                "add_task" -> executeAddTask(
+                    args["subjectId"]?.toIntOrNull() ?: 1,
+                    args["title"] ?: return error("title required"),
+                    args["dueDateString"] ?: return error("dueDateString required"),
+                    args["priority"] ?: "MEDIUM"
                 )
-                "create_personal_event" -> executeCreatePersonalEvent(
+                "mark_task_done" -> {
+                    val id = args["assignmentId"]?.toIntOrNull() ?: return error("assignmentId required")
+                    repo.updateAssignmentStatus(id, AssignmentStatus.SUBMITTED)
+                    """{"success": true, "message": "Task marked as done."}"""
+                }
+                "create_event" -> executeCreateEvent(
                     args["title"] ?: return error("title required"),
                     args["dateString"] ?: return error("dateString required (YYYY-MM-DD)"),
                     args["type"] ?: "PERSONAL",
                     args["timeString"]
                 )
+                "delete_event" -> {
+                    val id = args["eventId"]?.toIntOrNull() ?: return error("eventId required")
+                    repo.deleteEvent(id)
+                    """{"success": true, "message": "Event deleted."}"""
+                }
+                "add_subject" -> executeAddSubject(
+                    args["code"] ?: return error("code required"),
+                    args["name"] ?: return error("name required")
+                )
+                "override_attendance" -> {
+                    repo.overrideAttendance(
+                        args["code"] ?: return error("code required"),
+                        args["attended"]?.toIntOrNull() ?: return error("attended required"),
+                        args["total"]?.toIntOrNull() ?: return error("total required")
+                    )
+                    """{"success": true, "message": "Attendance overriden."}"""
+                }
+                "clear_all_notifications" -> {
+                    repo.deleteAllAnnouncements()
+                    """{"success": true, "message": "All notifications cleared."}"""
+                }
                 "cancel_class" -> {
                     if (userRole != "FACULTY") return error("Permission denied. Faculty only.")
                     // Simulating for Phase 5 demo
@@ -242,7 +274,28 @@ class AiToolExecutor(
         }
     }
     
-    private suspend fun executeCreatePersonalEvent(title: String, dateString: String, type: String, timeString: String?): String {
+    private suspend fun executeAddTask(subjectId: Int, title: String, dueDateString: String, priorityStr: String): String {
+        try {
+            val date = LocalDate.parse(dueDateString)
+            val dateMillis = date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+            val priority = try { AssignmentPriority.valueOf(priorityStr) } catch(e: Exception) { AssignmentPriority.MEDIUM }
+            
+            repo.addAssignment(
+                Assignment(
+                    subjectId = subjectId,
+                    title = title,
+                    dueDateMillis = dateMillis,
+                    priority = priority,
+                    status = AssignmentStatus.NOT_STARTED
+                )
+            )
+            return """{"success": true, "message": "Task '$title' added."}"""
+        } catch (e: Exception) {
+            return error("Failed to add task: ${e.message}")
+        }
+    }
+    
+    private suspend fun executeCreateEvent(title: String, dateString: String, type: String, timeString: String?): String {
         try {
             val date = LocalDate.parse(dateString)
             val dateMillis = date.atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
@@ -260,6 +313,21 @@ class AiToolExecutor(
             return """{"success": true, "message": "Event '$title' added on $dateString"}"""
         } catch (e: Exception) {
             return error("Failed to create event: ${e.message}")
+        }
+    }
+
+    private suspend fun executeAddSubject(code: String, name: String): String {
+        try {
+            repo.insertSubject(
+                Subject(
+                    code = code,
+                    name = name,
+                    faculty = "Unknown"
+                )
+            )
+            return """{"success": true, "message": "Subject $code added."}"""
+        } catch (e: Exception) {
+            return error("Failed to add subject: ${e.message}")
         }
     }
     

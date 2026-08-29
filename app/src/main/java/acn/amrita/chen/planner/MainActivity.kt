@@ -43,7 +43,9 @@ class MainActivity : ComponentActivity() {
         checkNotificationPermission()
         
         setContent {
-            AmritaCalendar2627Theme {
+            val themeConfig by viewModel.appPreferences.themeConfig.collectAsState()
+
+            AmritaCalendar2627Theme(themeConfig = themeConfig) {
                 val showAddDialog by viewModel.showAddEventDialog.collectAsState()
                 val selectedDate by viewModel.selectedDate.collectAsState()
 

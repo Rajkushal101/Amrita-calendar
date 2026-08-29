@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import kotlinx.coroutines.launch
 
-@Database(entities = [Event::class, Subject::class, Announcement::class, UserProfile::class, ClassSession::class, Assignment::class, AttendanceRecord::class], version = 5, exportSchema = false)
+@Database(entities = [Event::class, Subject::class, Announcement::class, UserProfile::class, ClassSession::class, Assignment::class, AttendanceRecord::class, ChatMessageEntity::class], version = 6, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun eventDao(): EventDao
     abstract fun subjectDao(): SubjectDao
@@ -15,6 +15,7 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun classSessionDao(): ClassSessionDao
     abstract fun assignmentDao(): AssignmentDao
     abstract fun attendanceRecordDao(): AttendanceRecordDao
+    abstract fun chatMessageDao(): ChatMessageDao
 
     companion object {
         @Volatile
