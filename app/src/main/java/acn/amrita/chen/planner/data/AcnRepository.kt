@@ -1,6 +1,7 @@
 package acn.amrita.chen.planner.data
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.launch
 import java.time.LocalDate
@@ -23,6 +24,7 @@ class AcnRepository(private val db: AppDatabase) {
     private val attendanceRecordDao = db.attendanceRecordDao()
     private val announcementDao = db.announcementDao()
     private val userProfileDao = db.userProfileDao()
+    private val subjectSyllabusDao = db.subjectSyllabusDao()
 
     private val firestore = FirebaseFirestore.getInstance()
     private var announcementsListener: ListenerRegistration? = null
@@ -32,6 +34,7 @@ class AcnRepository(private val db: AppDatabase) {
     // Moved below.
 
     // ── User Profiles ────────────────────────────────────────────────
+    fun getUserProfile(): Flow<UserProfile?> = userProfileDao.getUserProfile()
 
     // ── Schedule ────────────────────────────────────────────────
 
@@ -298,12 +301,39 @@ class AcnRepository(private val db: AppDatabase) {
     fun getAllSubjects(): Flow<List<Subject>> = subjectDao.getAllSubjects()
 
     suspend fun insertSubject(subject: Subject) = subjectDao.insertSubject(subject)
+
+    // --- Subject Syllabus & Project ---
+    fun getUnitsForSubject(subjectId: Int): Flow<List<SubjectUnit>> = subjectSyllabusDao.getUnitsForSubject(subjectId)
+    suspend fun insertUnit(unit: SubjectUnit): Long = subjectSyllabusDao.insertUnit(unit)
+    suspend fun deleteUnit(unit: SubjectUnit) = subjectSyllabusDao.deleteUnit(unit)
+
+    fun getTopicsForUnit(unitId: Int): Flow<List<SubjectTopic>> = subjectSyllabusDao.getTopicsForUnit(unitId)
+    suspend fun insertTopic(topic: SubjectTopic): Long = subjectSyllabusDao.insertTopic(topic)
+    suspend fun deleteTopic(topic: SubjectTopic) = subjectSyllabusDao.deleteTopic(topic)
     
-    suspend fun syncScrapedAttendance(html: String) {
-        val parsedList = AumsScraper.parseAttendanceHtml(html)
+    suspend fun getTopicsForUnitsSync(unitIds: List<Int>): List<SubjectTopic> = subjectSyllabusDao.getTopicsForUnitsSync(unitIds)
+    suspend fun getUnitsForSubjectSync(subjectId: Int): List<SubjectUnit> = subjectSyllabusDao.getUnitsForSubjectSync(subjectId)
+
+    fun getProjectForSubject(subjectId: Int): Flow<SubjectProject?> = subjectSyllabusDao.getProjectForSubject(subjectId)
+    suspend fun insertProject(project: SubjectProject): Long = subjectSyllabusDao.insertProject(project)
+    suspend fun deleteProject(project: SubjectProject) = subjectSyllabusDao.deleteProject(project)
+    suspend fun getProjectForSubjectSync(subjectId: Int): SubjectProject? = subjectSyllabusDao.getProjectForSubjectSync(subjectId)
+    
+    suspend fun syncScrapedAttendance(html: String, semester: Int = 0) {
+        val parsedData = AumsScraper.parseAttendanceHtml(html)
         val existingSubjects = subjectDao.getAllSubjectsSync()
         
-        for (parsed in parsedList) {
+        // Update UserProfile if name was found
+        parsedData.userName?.let { name ->
+            val profile = userProfileDao.getProfileSync()
+            if (profile != null) {
+                userProfileDao.insertUserProfile(profile.copy(name = name))
+            } else {
+                userProfileDao.insertUserProfile(UserProfile(name = name, semester = semester))
+            }
+        }
+        
+        for (parsed in parsedData.attendanceList) {
             val percentage = if (parsed.totalClasses > 0) {
                 (parsed.attendedClasses.toFloat() / parsed.totalClasses) * 100f
             } else 0f
@@ -317,7 +347,6 @@ class AcnRepository(private val db: AppDatabase) {
                     percentage = percentage
                 )
             } else {
-                // If subject doesn't exist, maybe we can create it minimally
                 val newSubject = Subject(
                     id = 0,
                     code = parsed.subjectCode,
@@ -326,7 +355,8 @@ class AcnRepository(private val db: AppDatabase) {
                     credits = 3,
                     totalClasses = parsed.totalClasses,
                     attendedClasses = parsed.attendedClasses,
-                    attendancePercentage = percentage
+                    attendancePercentage = percentage,
+                    semester = semester
                 )
                 subjectDao.insertSubject(newSubject)
             }
@@ -465,4 +495,33 @@ class AcnRepository(private val db: AppDatabase) {
 
         return SemesterProgress(totalDays, elapsed, pct, nextName, daysTo)
     }
+
+    suspend fun getSubjectByCodeSynchronously(code: String): Subject? {
+        return subjectDao.getSubjectByCode(code)
+    }
+
+    suspend fun saveSubjectSyllabus(subjectId: Int, units: List<Pair<SubjectUnit, List<String>>>) {
+        subjectSyllabusDao.deleteUnitsForSubject(subjectId)
+        for ((unit, topics) in units) {
+            val unitId = subjectSyllabusDao.insertUnit(unit.copy(subjectId = subjectId)).toInt()
+            val topicEntities = topics.map { SubjectTopic(unitId = unitId, title = it) }
+            subjectSyllabusDao.insertTopics(topicEntities)
+        }
+    }
+
+    suspend fun saveSubjectProject(project: SubjectProject) {
+        val existing = subjectSyllabusDao.getProjectForSubjectSync(project.subjectId)
+        if (existing != null) {
+            subjectSyllabusDao.insertProject(project.copy(id = existing.id))
+        } else {
+            subjectSyllabusDao.insertProject(project)
+        }
+    }
+
+    suspend fun getAllSessionsSynchronously(): List<ClassSession> = classSessionDao.getAllSessions().first()
+    suspend fun updateSession(session: ClassSession) = classSessionDao.updateSession(session)
+    suspend fun deleteSession(id: Int) = classSessionDao.deleteSession(id)
+    
+    suspend fun getAllEventsSynchronously(): List<Event> = eventDao.getAllEvents().first()
+    suspend fun updateEvent(event: Event) = eventDao.updateEvent(event)
 }

@@ -106,9 +106,11 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _showAddEventDialog.value = false
     }
 
-    fun syncAumsAttendance(html: String) {
+    var pendingSyncSemester: Int = 0
+
+    fun syncAumsAttendance(html: String, semester: Int = pendingSyncSemester) {
         viewModelScope.launch {
-            repository.syncScrapedAttendance(html)
+            repository.syncScrapedAttendance(html, semester)
         }
     }
 

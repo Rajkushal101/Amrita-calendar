@@ -11,10 +11,31 @@ object AumsScraper {
         val attendedClasses: Int
     )
 
-    fun parseAttendanceHtml(html: String): List<ParsedAttendance> {
+    data class ParsedAumsData(
+        val userName: String?,
+        val attendanceList: List<ParsedAttendance>
+    )
+
+    fun parseAttendanceHtml(html: String): ParsedAumsData {
         val parsedList = mutableListOf<ParsedAttendance>()
+        var userName: String? = null
         try {
             val doc = Jsoup.parse(html)
+            
+            // Try to extract userName. 
+            // In AUMS, it's typically in a profile dropdown or a welcome message.
+            // We'll look for common patterns or elements containing "Welcome" or specific classes.
+            val welcomeSpan = doc.select("span:containsOwn(Welcome)").firstOrNull()
+                ?: doc.select("div:containsOwn(Welcome)").firstOrNull()
+            
+            if (welcomeSpan != null) {
+                // E.g., "Welcome, RAJ KUSHAL" -> "RAJ KUSHAL"
+                val text = welcomeSpan.text()
+                val match = Regex("Welcome,?\\s+([A-Za-z\\s]+)").find(text)
+                if (match != null) {
+                    userName = match.groupValues[1].trim()
+                }
+            }
             
             // Search all tables
             val tables = doc.select("table")
@@ -63,6 +84,7 @@ object AumsScraper {
         }
         
         // Remove duplicates if any
-        return parsedList.distinctBy { it.subjectCode }
+        val distinctList = parsedList.distinctBy { it.subjectCode }
+        return ParsedAumsData(userName, distinctList)
     }
 }

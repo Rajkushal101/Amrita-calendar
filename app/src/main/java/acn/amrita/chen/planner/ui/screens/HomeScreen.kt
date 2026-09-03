@@ -49,13 +49,15 @@ fun HomeScreen(viewModel: acn.amrita.chen.planner.ui.MainViewModel) {
     val attendanceAlerts by homeVm.attendanceAlerts.collectAsState()
     val assignments by homeVm.assignmentsDue.collectAsState()
 
+    val userName by homeVm.userName.collectAsState()
+
     // #region agent log
     acn.amrita.chen.planner.debug.DebugAgentLog.log(
         "HomeScreen.kt:HomeScreen",
-        "Home wired with hardcoded identity and no nav callbacks",
+        "Home wired with dynamic identity",
         "D",
         mapOf(
-            "userName" to "Raj",
+            "userName" to userName,
             "todayClassCount" to todayClasses.size,
             "alertCount" to attendanceAlerts.size,
             "assignmentCount" to assignments.size,
@@ -64,7 +66,7 @@ fun HomeScreen(viewModel: acn.amrita.chen.planner.ui.MainViewModel) {
     )
     // #endregion
     HomeScreenContent(
-        userName = "Raj",
+        userName = userName,
         userRole = "STUDENT",
         todayClasses = todayClasses,
         attendanceAlerts = attendanceAlerts,

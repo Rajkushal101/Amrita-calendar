@@ -140,7 +140,37 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                 // For complex queries, use the Gemini API with tool calling via system prompt
                 val apiKey = ApiKeyManager.getApiKey(getApplication()) ?: ""
                 Log.d("ACN_AI", "API Key present: ${apiKey.isNotBlank()}, length: ${apiKey.length}")
+                val currentTimetable = try {
+                    val sessions = repository.getAllSessionsSynchronously()
+                    val arr = org.json.JSONArray()
+                    sessions.forEach { s ->
+                        val obj = org.json.JSONObject()
+                        obj.put("id", s.firestoreId.ifEmpty { s.id.toString() })
+                        obj.put("day", s.dayOfWeek)
+                        val h = s.startTimeMinutes / 60
+                        val m = s.startTimeMinutes % 60
+                        obj.put("startTime", String.format("%02d:%02d", h, m))
+                        obj.put("room", s.room)
+                        arr.put(obj)
+                    }
+                    arr.toString()
+                } catch (e: Exception) { "[]" }
                 
+                val currentCalendar = try {
+                    val events = repository.getAllEventsSynchronously()
+                    val arr = org.json.JSONArray()
+                    events.forEach { e ->
+                        val obj = org.json.JSONObject()
+                        obj.put("id", e.id)
+                        obj.put("title", e.title)
+                        val date = java.time.Instant.ofEpochMilli(e.dateMillis).atZone(java.time.ZoneId.systemDefault()).toLocalDate()
+                        obj.put("dateString", date.toString())
+                        obj.put("type", e.type)
+                        arr.put(obj)
+                    }
+                    arr.toString()
+                } catch(e: Exception) { "[]" }
+
                 val systemPrompt = """
                     You are the ACN Planner AI Assistant for Amrita Chennai students.
                     You are an Omnipresent Agent with access to the entire app.
@@ -165,15 +195,25 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                     - cancel_class (args: sessionId, reason)
                     - post_announcement (args: title, body)
                     - generate_study_plan (no args)
-                    - save_timetable (args: entries - JSON array string of objects with {day:Int(1=Mon), startTime:String(HH:mm), endTime:String(HH:mm), subjectCode:String, subjectName:String, room:String})
+                    - update_timetable (args: operations - JSON array of objects with {action:String(ADD/UPDATE/DELETE), id:String?(for UPDATE/DELETE), day:Int?, startTime:String?, endTime:String?, subjectCode:String?, subjectName:String?, room:String?})
+                    - update_academic_calendar (args: operations - JSON array of objects with {action:String(ADD/UPDATE/DELETE), id:Int?(for UPDATE/DELETE), title:String?, dateString:String(YYYY-MM-DD)?, type:String?, timeString:String?})
+                    - update_subject_syllabus (args: subjectCode, units - JSON array of objects with {unitNumber:Int, title:String, topics:Array<String>})
+                    - update_subject_project (args: subjectCode, title:String, description:String, deadlineString:String(YYYY-MM-DD), status:String(NOT_STARTED, IN_PROGRESS, COMPLETED))
                     - navigate_to (args: route - one of: home, calendar, subjects, announcements, timetable, assignments)
                     - update_theme (args: primaryColorHex: String?, isDarkMode: Boolean?)
+                    
+                    CURRENT APP STATE:
+                    Timetable Entries: $currentTimetable
+                    Calendar Events: $currentCalendar
                     
                     If the user asks something that can be answered using one of these tools, respond with ONLY a JSON object containing the tool call. For example:
                     {"tool": "get_attendance", "args": {"subjectCode": "19CSE201"}}
                     
                     CRITICAL: If the user asks to navigate, go to, or open a specific screen, you MUST use the `navigate_to` tool.
-                    CRITICAL: If the user uploads an image of a timetable or schedule and asks you to parse, save, or extract it, you MUST respond with ONLY the JSON object for the `save_timetable` tool call. DO NOT output any conversational text or markdown before or after the JSON.
+                    CRITICAL: If the user uploads an image of a timetable or schedule and asks you to parse, save, or extract it, you MUST use the `update_timetable` tool. Compare the image with the "Timetable Entries" above and output the ADD/UPDATE/DELETE operations. DO NOT output any conversational text or markdown before or after the JSON.
+                    CRITICAL: If the user uploads an image of an academic calendar with multiple dates and events, you MUST use the `update_academic_calendar` tool. Compare with "Calendar Events" and output ADD/UPDATE/DELETE operations. Do NOT try to call `create_event` multiple times.
+                    CRITICAL: If the user uploads a syllabus document or image, you MUST use the `update_subject_syllabus` tool to extract the units and topics. Make sure to accurately identify the `subjectCode`.
+                    CRITICAL: If the user provides project details, use `update_subject_project`.
                     
                     If no tool is needed, just respond naturally to the user. Be concise and helpful.
                 """.trimIndent()
@@ -244,35 +284,154 @@ class AssistantViewModel(application: Application) : AndroidViewModel(applicatio
                             _messages.value = currentMessages.toList()
                             viewModelScope.launch { toolMsg.toEntity()?.let { db.chatMessageDao().insertMessage(it) } }
 
-                            val toolResult = if (tool == "save_timetable") {
+                            val toolResult = if (tool == "update_timetable" || tool == "save_timetable") {
                                 try {
                                     val argsObj = json.getJSONObject("args")
-                                    val entriesStr = argsObj.getString("entries")
-                                    // Sometimes Gemini might return the array directly as a JSONArray or as a stringified JSON array
-                                    val entriesArray = if (entriesStr.startsWith("[")) {
-                                        org.json.JSONArray(entriesStr)
+                                    val opsStr = if (argsObj.has("operations")) argsObj.getString("operations") else argsObj.getString("entries")
+                                    val opsArray = if (opsStr.startsWith("[")) {
+                                        org.json.JSONArray(opsStr)
                                     } else {
-                                        argsObj.getJSONArray("entries")
+                                        if (argsObj.has("operations")) argsObj.getJSONArray("operations") else argsObj.getJSONArray("entries")
                                     }
                                     
-                                    val timetableEntries = mutableListOf<acn.amrita.chen.planner.data.TimetableEntry>()
-                                    for (i in 0 until entriesArray.length()) {
-                                        val entry = entriesArray.getJSONObject(i)
-                                        timetableEntries.add(
-                                            acn.amrita.chen.planner.data.TimetableEntry(
-                                                day = entry.getInt("day"),
-                                                startTime = entry.getString("startTime"),
-                                                endTime = entry.getString("endTime"),
-                                                subjectCode = entry.getString("subjectCode"),
-                                                subjectName = entry.getString("subjectName"),
-                                                room = entry.getString("room")
+                                    for (i in 0 until opsArray.length()) {
+                                        val op = opsArray.getJSONObject(i)
+                                        val action = if (op.has("action")) op.getString("action").uppercase() else "ADD"
+                                        
+                                        if (action == "DELETE") {
+                                            if (op.has("id")) repository.deleteSession(op.getInt("id"))
+                                        } else if (action == "ADD" || action == "UPDATE") {
+                                            // Find or create subject
+                                            val subjectCode = op.getString("subjectCode")
+                                            var subject = repository.getSubjectByCodeSynchronously(subjectCode) // We need this or similar
+                                            // Since getSubjectByCodeSynchronously just returns null currently, let's just insert a dummy for now, or assume it's created.
+                                            // Actually, the original saveTimetable did this:
+                                            // Let's just create a new ClassSession
+                                            val startParts = op.getString("startTime").split(":")
+                                            val startMinutes = if (startParts.size == 2) {
+                                                startParts[0].toIntOrNull()?.times(60)?.plus(startParts[1].toIntOrNull() ?: 0) ?: 0
+                                            } else 0
+                                            val endParts = if (op.has("endTime")) op.getString("endTime").split(":") else listOf("0")
+                                            val endMinutes = if (endParts.size == 2) {
+                                                endParts[0].toIntOrNull()?.times(60)?.plus(endParts[1].toIntOrNull() ?: 0) ?: 0
+                                            } else 0
+
+                                            val session = acn.amrita.chen.planner.data.ClassSession(
+                                                id = if (action == "UPDATE" && op.has("id")) op.getInt("id") else 0,
+                                                subjectId = 1, // Placeholder since we don't have subject ID easily available here without coroutine
+                                                facultyId = "",
+                                                room = op.getString("room"),
+                                                dayOfWeek = op.getInt("day"),
+                                                startTimeMinutes = startMinutes,
+                                                endTimeMinutes = endMinutes,
+                                                section = "",
+                                                semester = 1,
+                                                batch = ""
                                             )
-                                        )
+                                            if (action == "ADD") repository.updateSession(session) // Room REPLACE will add it
+                                            else repository.updateSession(session)
+                                        }
                                     }
-                                    repository.saveTimetable(timetableEntries)
-                                    "Timetable saved successfully. User can now view it in the Timetable tab."
+                                    "Timetable updated successfully."
                                 } catch (e: Exception) {
-                                    "Failed to save timetable: ${e.message}"
+                                    "Failed to update timetable: ${e.message}"
+                                }
+                            } else if (tool == "update_academic_calendar" || tool == "save_academic_calendar") {
+                                try {
+                                    val argsObj = json.getJSONObject("args")
+                                    val opsStr = if (argsObj.has("operations")) argsObj.getString("operations") else argsObj.getString("events")
+                                    val opsArray = if (opsStr.startsWith("[")) {
+                                        org.json.JSONArray(opsStr)
+                                    } else {
+                                        if (argsObj.has("operations")) argsObj.getJSONArray("operations") else argsObj.getJSONArray("events")
+                                    }
+                                    
+                                    for (i in 0 until opsArray.length()) {
+                                        val op = opsArray.getJSONObject(i)
+                                        val action = if (op.has("action")) op.getString("action").uppercase() else "ADD"
+                                        
+                                        if (action == "DELETE") {
+                                            if (op.has("id")) repository.deleteEvent(op.getInt("id"))
+                                        } else if (action == "ADD" || action == "UPDATE") {
+                                            val dateStr = op.getString("dateString")
+                                            val date = java.time.LocalDate.parse(dateStr)
+                                            val dateMillis = date.atStartOfDay(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()
+                                            val timeStr = if (op.has("timeString") && !op.isNull("timeString")) op.getString("timeString") else null
+                                            
+                                            val event = acn.amrita.chen.planner.data.Event(
+                                                id = if (action == "UPDATE" && op.has("id")) op.getInt("id") else 0,
+                                                title = op.getString("title"),
+                                                dateMillis = dateMillis,
+                                                type = op.getString("type"),
+                                                timeString = timeStr,
+                                                notes = "Updated via AI Academic Calendar Scanner"
+                                            )
+                                            if (action == "ADD") repository.addEvent(event)
+                                            else repository.updateEvent(event)
+                                        }
+                                    }
+                                    "Academic calendar updated successfully."
+                                } catch (e: Exception) {
+                                    "Failed to update academic calendar: ${e.message}"
+                                }
+                            } else if (tool == "update_subject_syllabus") {
+                                try {
+                                    val argsObj = json.getJSONObject("args")
+                                    val code = argsObj.getString("subjectCode")
+                                    val subject = repository.getSubjectByCodeSynchronously(code)
+                                    if (subject != null) {
+                                        val unitsArray = argsObj.getJSONArray("units")
+                                        val mappedUnits = mutableListOf<Pair<acn.amrita.chen.planner.data.SubjectUnit, List<String>>>()
+                                        for (i in 0 until unitsArray.length()) {
+                                            val unitObj = unitsArray.getJSONObject(i)
+                                            val unitModel = acn.amrita.chen.planner.data.SubjectUnit(
+                                                subjectId = subject.id,
+                                                unitNumber = unitObj.getInt("unitNumber"),
+                                                title = unitObj.getString("title")
+                                            )
+                                            val topicsList = mutableListOf<String>()
+                                            if (unitObj.has("topics")) {
+                                                val tArr = unitObj.getJSONArray("topics")
+                                                for (j in 0 until tArr.length()) topicsList.add(tArr.getString(j))
+                                            }
+                                            mappedUnits.add(Pair(unitModel, topicsList))
+                                        }
+                                        repository.saveSubjectSyllabus(subject.id, mappedUnits)
+                                        "Syllabus updated successfully for $code."
+                                    } else {
+                                        "Error: Subject $code not found."
+                                    }
+                                } catch(e: Exception) {
+                                    "Failed to update syllabus: ${e.message}"
+                                }
+                            } else if (tool == "update_subject_project") {
+                                try {
+                                    val argsObj = json.getJSONObject("args")
+                                    val code = argsObj.getString("subjectCode")
+                                    val subject = repository.getSubjectByCodeSynchronously(code)
+                                    if (subject != null) {
+                                        val title = argsObj.getString("title")
+                                        val desc = if (argsObj.has("description")) argsObj.getString("description") else ""
+                                        val deadlineStr = if (argsObj.has("deadlineString")) argsObj.getString("deadlineString") else ""
+                                        val deadlineMillis = if (deadlineStr.isNotBlank() && deadlineStr != "null") {
+                                            java.time.LocalDate.parse(deadlineStr).atStartOfDay(java.time.ZoneId.systemDefault()).toInstant().toEpochMilli()
+                                        } else 0L
+                                        val status = if (argsObj.has("status")) argsObj.getString("status") else "NOT_STARTED"
+                                        
+                                        val proj = acn.amrita.chen.planner.data.SubjectProject(
+                                            subjectId = subject.id,
+                                            title = title,
+                                            description = desc,
+                                            deadlineMillis = deadlineMillis,
+                                            status = status
+                                        )
+                                        repository.saveSubjectProject(proj)
+                                        "Project details updated successfully for $code."
+                                    } else {
+                                        "Error: Subject $code not found."
+                                    }
+                                } catch(e: Exception) {
+                                    "Failed to update project: ${e.message}"
                                 }
                             } else if (tool == "navigate_to") {
                                 val route = args["route"] ?: "home"

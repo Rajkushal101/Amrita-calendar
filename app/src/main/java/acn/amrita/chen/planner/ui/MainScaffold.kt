@@ -109,7 +109,10 @@ fun MainScaffold(viewModel: MainViewModel) {
             composable("subjects") {
                 SubjectsScreen(
                     viewModel = viewModel,
-                    onNavigateToAums = { bottomNavController.navigate("aums_login") }
+                    onNavigateToAums = { sem -> 
+                        viewModel.pendingSyncSemester = sem
+                        bottomNavController.navigate("aums_login") 
+                    }
                 )
             }
             composable("announcements") {

@@ -22,6 +22,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import kotlinx.coroutines.flow.MutableStateFlow
+import androidx.compose.material3.TabRowDefaults.tabIndicatorOffset
+import androidx.compose.foundation.shape.CircleShape
 import kotlin.math.roundToInt
 import androidx.lifecycle.viewmodel.compose.viewModel
 
@@ -43,21 +46,32 @@ private val TrackColor  = Color(0xFF3A3A3A)
 
 
 @Composable
-fun SubjectsScreen(viewModel: acn.amrita.chen.planner.ui.MainViewModel, onNavigateToAums: () -> Unit) {
+fun SubjectsScreen(viewModel: acn.amrita.chen.planner.ui.MainViewModel, onNavigateToAums: (Int) -> Unit) {
     val subjectsVm: SubjectsViewModel = viewModel()
     val subjects by subjectsVm.subjects.collectAsState()
+    val selectedSemester by subjectsVm.selectedSemester.collectAsState()
 
     SubjectsScreenContent(
         subjects = subjects,
-        onSyncAums = onNavigateToAums
+        selectedSemester = selectedSemester,
+        onSemesterSelected = { subjectsVm.setSemester(it) },
+        onSyncAums = { onNavigateToAums(selectedSemester) },
+        viewModel = subjectsVm
     )
 }
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun SubjectsScreenContent(
     subjects: List<SubjectUi> = sampleSubjects(),
-    onSyncAums: () -> Unit = {}
+    selectedSemester: Int = 3,
+    onSemesterSelected: (Int) -> Unit = {},
+    onSyncAums: () -> Unit = {},
+    viewModel: SubjectsViewModel? = null
 ) {
+    val units by (viewModel?.selectedSubjectUnits ?: MutableStateFlow(emptyList())).collectAsState()
+    val topicsMap by (viewModel?.selectedSubjectTopics ?: MutableStateFlow(emptyMap())).collectAsState()
+    val project by (viewModel?.selectedSubjectProject ?: MutableStateFlow(null)).collectAsState()
+    
     var selectedSubject by remember { mutableStateOf<SubjectUi?>(null) }
     val sheetState = rememberModalBottomSheetState(skipPartiallyExpanded = true)
 
@@ -76,11 +90,37 @@ fun SubjectsScreenContent(
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
-                Column {
+                Column(modifier = Modifier.weight(1f)) {
                     Text("Subjects & Attendance",
                         fontSize = 22.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
-                    val semLabel = "2026-27 Odd Sem"
-                    Text(semLabel, fontSize = 13.sp, color = TextSec)
+                    
+                    var expanded by remember { mutableStateOf(false) }
+                    Box {
+                        Text(
+                            text = "Semester $selectedSemester ▼",
+                            fontSize = 14.sp,
+                            color = AcnRed,
+                            fontWeight = FontWeight.Bold,
+                            modifier = Modifier
+                                .clickable { expanded = true }
+                                .padding(vertical = 4.dp)
+                        )
+                        DropdownMenu(
+                            expanded = expanded,
+                            onDismissRequest = { expanded = false },
+                            modifier = Modifier.background(AcnCard)
+                        ) {
+                            (1..8).forEach { sem ->
+                                DropdownMenuItem(
+                                    text = { Text("Semester $sem", color = TextPrimary) },
+                                    onClick = { 
+                                        onSemesterSelected(sem)
+                                        expanded = false 
+                                    }
+                                )
+                            }
+                        }
+                    }
                 }
                 Button(
                     onClick = onSyncAums,
@@ -103,13 +143,16 @@ fun SubjectsScreenContent(
         items(subjects) { subject ->
             SubjectAttendanceCard(
                 subject = subject,
-                onClick  = { selectedSubject = subject }
+                onClick  = { 
+                    selectedSubject = subject 
+                    viewModel?.loadSubjectDetails(subject.id)
+                }
             )
             Spacer(Modifier.height(8.dp))
         }
     }
 
-    // Bottom sheet for what-if detail
+    // Bottom sheet for subject detail
     if (selectedSubject != null) {
         ModalBottomSheet(
             onDismissRequest = { selectedSubject = null },
@@ -125,7 +168,12 @@ fun SubjectsScreenContent(
                 )
             }
         ) {
-            AttendanceDetailSheet(selectedSubject!!)
+            SubjectDetailSheet(
+                subject = selectedSubject!!,
+                units = units,
+                topicsMap = topicsMap,
+                project = project
+            )
         }
     }
 }
@@ -271,7 +319,57 @@ fun AnimatedRing(
 
 // ── What-if detail bottom sheet ───────────────────────────────────────────────
 @Composable
-private fun AttendanceDetailSheet(subject: SubjectUi) {
+private fun SubjectDetailSheet(
+    subject: SubjectUi,
+    units: List<acn.amrita.chen.planner.data.SubjectUnit>,
+    topicsMap: Map<Int, List<acn.amrita.chen.planner.data.SubjectTopic>>,
+    project: acn.amrita.chen.planner.data.SubjectProject?
+) {
+    var selectedTabIndex by remember { mutableIntStateOf(0) }
+    val tabs = listOf("Attendance", "Syllabus", "Project")
+
+    Column(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 20.dp, vertical = 0.dp)
+            .padding(bottom = 40.dp)
+    ) {
+        Text(subject.name, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+        Text(subject.code, fontSize = 13.sp, color = AcnRed)
+        Spacer(Modifier.height(16.dp))
+
+        TabRow(
+            selectedTabIndex = selectedTabIndex,
+            containerColor = Color.Transparent,
+            contentColor = AcnRed,
+            indicator = { tabPositions ->
+                TabRowDefaults.Indicator(
+                    Modifier.tabIndicatorOffset(tabPositions[selectedTabIndex]),
+                    color = AcnRed
+                )
+            }
+        ) {
+            tabs.forEachIndexed { index, title ->
+                Tab(
+                    selected = selectedTabIndex == index,
+                    onClick = { selectedTabIndex = index },
+                    text = { Text(title, color = if (selectedTabIndex == index) TextPrimary else TextSec) }
+                )
+            }
+        }
+        
+        Spacer(Modifier.height(16.dp))
+
+        when (selectedTabIndex) {
+            0 -> AttendanceTabContent(subject)
+            1 -> SyllabusTabContent(units, topicsMap)
+            2 -> ProjectTabContent(project)
+        }
+    }
+}
+
+@Composable
+private fun AttendanceTabContent(subject: SubjectUi) {
     var simAttend by remember { mutableIntStateOf(0) }
     var simMiss   by remember { mutableIntStateOf(0) }
 
@@ -284,16 +382,7 @@ private fun AttendanceDetailSheet(subject: SubjectUi) {
         else          -> RedDanger
     }
 
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(horizontal = 20.dp, vertical = 0.dp)
-            .padding(bottom = 40.dp)
-    ) {
-        Text(subject.name, fontSize = 18.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
-        Text(subject.code, fontSize = 13.sp, color = AcnRed)
-        Spacer(Modifier.height(20.dp))
-
+    Column {
         // Stats row
         Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceEvenly) {
             StatBox("Attended", "${subject.attended}")
@@ -307,32 +396,28 @@ private fun AttendanceDetailSheet(subject: SubjectUi) {
         Spacer(Modifier.height(20.dp))
 
         // What-if simulator
-        Text("What-If Simulator", fontSize = 15.sp, fontWeight = FontWeight.Bold,
-            color = TextPrimary)
-        Text("Adjust future classes to see attendance impact",
-            fontSize = 12.sp, color = TextSec)
+        Text("What-If Simulator", fontSize = 15.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+        Text("Adjust future classes to see attendance impact", fontSize = 12.sp, color = TextSec)
         Spacer(Modifier.height(16.dp))
 
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Attend adjuster
             SimAdjuster(
-                label   = "Classes to attend",
-                value   = simAttend,
+                label = "Classes to attend",
+                value = simAttend,
                 onMinus = { if (simAttend > 0) simAttend-- },
-                onPlus  = { simAttend++ },
-                color   = GreenSafe,
+                onPlus = { simAttend++ },
+                color = GreenSafe,
                 modifier = Modifier.weight(1f)
             )
-            // Miss adjuster
             SimAdjuster(
-                label   = "Classes to skip",
-                value   = simMiss,
+                label = "Classes to skip",
+                value = simMiss,
                 onMinus = { if (simMiss > 0) simMiss-- },
-                onPlus  = { simMiss++ },
-                color   = RedDanger,
+                onPlus = { simMiss++ },
+                color = RedDanger,
                 modifier = Modifier.weight(1f)
             )
         }
@@ -346,9 +431,7 @@ private fun AttendanceDetailSheet(subject: SubjectUi) {
             colors = CardDefaults.cardColors(containerColor = simColor.copy(alpha = 0.1f))
         ) {
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                modifier = Modifier.fillMaxWidth().padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -356,11 +439,60 @@ private fun AttendanceDetailSheet(subject: SubjectUi) {
                     Text("Projected attendance", fontSize = 13.sp, color = TextSec)
                     Text("$simAttended / $simTotal classes", fontSize = 12.sp, color = TextSec)
                 }
-                Text(
-                    "${"%.1f".format(simPct)}%",
-                    fontSize = 28.sp, fontWeight = FontWeight.Bold, color = simColor
-                )
+                Text("${"%.1f".format(simPct)}%", fontSize = 28.sp, fontWeight = FontWeight.Bold, color = simColor)
             }
+        }
+    }
+}
+
+@Composable
+private fun SyllabusTabContent(
+    units: List<acn.amrita.chen.planner.data.SubjectUnit>,
+    topicsMap: Map<Int, List<acn.amrita.chen.planner.data.SubjectTopic>>
+) {
+    if (units.isEmpty()) {
+        Text("No syllabus details available.", color = TextSec, fontSize = 14.sp)
+        return
+    }
+    LazyColumn(modifier = Modifier.heightIn(max = 400.dp)) {
+        items(units) { unit ->
+            Column(modifier = Modifier.padding(bottom = 12.dp)) {
+                Text(unit.title, fontSize = 15.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+                Spacer(Modifier.height(4.dp))
+                topicsMap[unit.id]?.forEach { topic ->
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Box(modifier = Modifier.size(6.dp).clip(CircleShape).background(if (topic.isCompleted) GreenSafe else TextSec))
+                        Spacer(Modifier.width(8.dp))
+                        Text(topic.title, fontSize = 13.sp, color = if (topic.isCompleted) TextPrimary else TextSec)
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun ProjectTabContent(project: acn.amrita.chen.planner.data.SubjectProject?) {
+    if (project == null) {
+        Text("No project details available.", color = TextSec, fontSize = 14.sp)
+        return
+    }
+    Column {
+        Text(project.title, fontSize = 16.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+        Spacer(Modifier.height(8.dp))
+        Text(project.description, fontSize = 14.sp, color = TextSec)
+        Spacer(Modifier.height(16.dp))
+        if (project.deadlineMillis > 0L) {
+            val dateStr = java.text.SimpleDateFormat("MMM dd, yyyy", java.util.Locale.getDefault()).format(java.util.Date(project.deadlineMillis))
+            Row {
+                Text("Deadline: ", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+                Text(dateStr, fontSize = 14.sp, color = TextSec)
+            }
+        }
+        Spacer(Modifier.height(8.dp))
+        Row {
+            Text("Status: ", fontSize = 14.sp, fontWeight = FontWeight.Bold, color = TextPrimary)
+            Text(project.status, fontSize = 14.sp, color = TextSec)
         }
     }
 }
@@ -416,13 +548,13 @@ private fun SimAdjuster(
 
 // ── Sample data (replace with ViewModel) ─────────────────────────────────────
 private fun sampleSubjects() = listOf(
-    SubjectUi("Distributed Systems and Cloud Computing", "20CYS402", attended = 25, total = 26),
-    SubjectUi("Internet of Things",                     "19CSE446", attended = 19, total = 26),
-    SubjectUi("Web Application Security",               "20CYS403", attended = 21, total = 25),
-    SubjectUi("Android Application Development",        "20CYS404", attended = 18, total = 22),
-    SubjectUi("Information Security Risk Management",   "20MNG331", attended = 21, total = 22),
-    SubjectUi("Secure Software Engineering",            "20CYS401", attended = 23, total = 30),
-    SubjectUi("Indian Constitution",                    "19LAW300", attended = 0,  total = 0),
-    SubjectUi("Project - Phase 1 / Seminar",            "20CYS495", attended = 0,  total = 0),
+    SubjectUi(1, "Distributed Systems and Cloud Computing", "20CYS402", attended = 25, total = 26, semester = 3),
+    SubjectUi(2, "Internet of Things",                     "19CSE446", attended = 19, total = 26, semester = 3),
+    SubjectUi(3, "Web Application Security",               "20CYS403", attended = 21, total = 25, semester = 3),
+    SubjectUi(4, "Android Application Development",        "20CYS404", attended = 18, total = 22, semester = 3),
+    SubjectUi(5, "Information Security Risk Management",   "20MNG331", attended = 21, total = 22, semester = 3),
+    SubjectUi(6, "Secure Software Engineering",            "20CYS401", attended = 23, total = 30, semester = 3),
+    SubjectUi(7, "Indian Constitution",                    "19LAW300", attended = 0,  total = 0, semester = 3),
+    SubjectUi(8, "Project - Phase 1 / Seminar",            "20CYS495", attended = 0,  total = 0, semester = 3),
 )
 

@@ -4,6 +4,8 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Update
+import androidx.room.Delete
 import kotlinx.coroutines.flow.Flow
 
 @Dao
@@ -22,6 +24,11 @@ interface ClassSessionDao {
 
     @Query("UPDATE class_sessions SET status = :status, cancelledBy = :cancelledBy, cancelledAt = :cancelledAt WHERE id = :sessionId")
     suspend fun cancelSession(sessionId: Int, status: SessionStatus = SessionStatus.CANCELLED, cancelledBy: String, cancelledAt: Long = System.currentTimeMillis())
+    @Update
+    suspend fun updateSession(session: ClassSession)
+
+    @Query("DELETE FROM class_sessions WHERE id = :sessionId")
+    suspend fun deleteSession(sessionId: Int)
     
     @Query("DELETE FROM class_sessions")
     suspend fun deleteAllSessions()

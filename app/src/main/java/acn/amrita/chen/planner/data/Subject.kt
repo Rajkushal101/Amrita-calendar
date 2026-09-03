@@ -13,5 +13,6 @@ data class Subject(
     val totalClasses: Int = 0,
     val attendedClasses: Int = 0,
     val attendancePercentage: Float = 0f,
-    val firestoreId: String = ""
+    val firestoreId: String = "",
+    val semester: Int = 0
 )

@@ -54,9 +54,20 @@ class HomeViewModel(application: Application) : AndroidViewModel(application) {
     private val _assignmentsDue = MutableStateFlow<List<AssignmentDueUi>>(emptyList())
     val assignmentsDue: StateFlow<List<AssignmentDueUi>> = _assignmentsDue
 
+    private val _userName = MutableStateFlow("Raj") // Default fallback
+    val userName: StateFlow<String> = _userName
+
     private val dateFormatter = SimpleDateFormat("MMM dd, yyyy", Locale.getDefault())
 
     init {
+        viewModelScope.launch {
+            repository.getUserProfile()?.collectLatest { profile ->
+                if (profile != null && profile.name.isNotBlank()) {
+                    _userName.value = profile.name.split(" ").firstOrNull()?.capitalize() ?: "Student"
+                }
+            }
+        }
+        
         viewModelScope.launch {
             repository.getTodaySchedule().collectLatest { classes ->
                 val subjects = repository.getAllSubjects().first()
