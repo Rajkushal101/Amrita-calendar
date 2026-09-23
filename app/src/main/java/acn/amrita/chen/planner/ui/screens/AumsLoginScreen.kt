@@ -44,9 +44,9 @@ fun AumsLoginScreen(viewModel: MainViewModel, onHtmlExtracted: (String) -> Unit)
                         settings.domStorageEnabled = true
                         settings.loadWithOverviewMode = true
                         settings.useWideViewPort = true
-                        settings.allowContentAccess = true
-                        settings.allowFileAccess = true
-                        settings.mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
+                        settings.allowContentAccess = false
+                        settings.allowFileAccess = false
+                        settings.mixedContentMode = android.webkit.WebSettings.MIXED_CONTENT_NEVER_ALLOW
 
                         webChromeClient = android.webkit.WebChromeClient()
                         
@@ -59,7 +59,7 @@ fun AumsLoginScreen(viewModel: MainViewModel, onHtmlExtracted: (String) -> Unit)
 
                         webViewClient = object : WebViewClient() {
                             override fun shouldOverrideUrlLoading(view: WebView?, request: android.webkit.WebResourceRequest?): Boolean {
-                                return false
+                                return request?.url?.scheme != "https" || request.url.host != "my.amrita.edu"
                             }
 
                             override fun onReceivedError(view: WebView?, request: android.webkit.WebResourceRequest?, error: android.webkit.WebResourceError?) {
@@ -68,7 +68,7 @@ fun AumsLoginScreen(viewModel: MainViewModel, onHtmlExtracted: (String) -> Unit)
                             }
 
                             override fun onReceivedSslError(view: WebView?, handler: android.webkit.SslErrorHandler?, error: android.net.http.SslError?) {
-                                handler?.proceed()
+                                handler?.cancel()
                             }
 
                             override fun onPageFinished(view: WebView, url: String) {

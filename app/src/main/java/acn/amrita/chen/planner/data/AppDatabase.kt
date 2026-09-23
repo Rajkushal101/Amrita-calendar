@@ -10,12 +10,14 @@ import kotlinx.coroutines.launch
     entities = [
         Event::class, Subject::class, Announcement::class, UserProfile::class,
         ClassSession::class, Assignment::class, AttendanceRecord::class, ChatMessageEntity::class,
-        SubjectUnit::class, SubjectTopic::class, SubjectProject::class
+        SubjectUnit::class, SubjectTopic::class, SubjectProject::class,
+        acn.amrita.chen.planner.workspace.AcademicRecord::class, acn.amrita.chen.planner.workspace.PendingWrite::class
     ],
-    version = 7,
-    exportSchema = false
+    version = 8,
+    exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
+    abstract fun workspaceDao(): acn.amrita.chen.planner.workspace.WorkspaceDao
     abstract fun eventDao(): EventDao
     abstract fun subjectDao(): SubjectDao
     abstract fun announcementDao(): AnnouncementDao
@@ -27,6 +29,12 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun subjectSyllabusDao(): SubjectSyllabusDao
 
     companion object {
+        val MIGRATION_7_8 = object : androidx.room.migration.Migration(7, 8) {
+            override fun migrate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
+                db.execSQL("CREATE TABLE IF NOT EXISTS workspace_records (owner TEXT NOT NULL, id TEXT NOT NULL, kind TEXT NOT NULL, courseId TEXT NOT NULL, groupId TEXT NOT NULL, payload TEXT NOT NULL, revision INTEGER NOT NULL, updatedAt INTEGER NOT NULL, deleted INTEGER NOT NULL, PRIMARY KEY(owner, id))")
+                db.execSQL("CREATE TABLE IF NOT EXISTS workspace_outbox (owner TEXT NOT NULL, id TEXT NOT NULL, operation TEXT NOT NULL, payload TEXT NOT NULL, createdAt INTEGER NOT NULL, error TEXT NOT NULL, PRIMARY KEY(owner, id))")
+            }
+        }
         @Volatile
         private var INSTANCE: AppDatabase? = null
 
@@ -37,36 +45,7 @@ abstract class AppDatabase : RoomDatabase() {
                     AppDatabase::class.java,
                     "amrita_calendar_database"
                 )
-                .fallbackToDestructiveMigration()
-                .addCallback(object : RoomDatabase.Callback() {
-                    override fun onCreate(db: androidx.sqlite.db.SupportSQLiteDatabase) {
-                        super.onCreate(db)
-                        // #region agent log
-                        acn.amrita.chen.planner.debug.DebugAgentLog.log(
-                            "AppDatabase.kt:onCreate",
-                            "Room onCreate fired",
-                            "A",
-                            mapOf("instanceNullAtCallback" to (INSTANCE == null))
-                        )
-                        // #endregion
-                        // Launch a coroutine to populate the database
-                        kotlinx.coroutines.GlobalScope.launch {
-                            val inst = INSTANCE
-                            // #region agent log
-                            acn.amrita.chen.planner.debug.DebugAgentLog.log(
-                                "AppDatabase.kt:onCreate.seed",
-                                "Seed coroutine running",
-                                "A",
-                                mapOf("instanceNullInCoroutine" to (inst == null))
-                            )
-                            // #endregion
-                            inst?.let { database ->
-                                database.eventDao().insertEvents(InitialData.getAcademicEventsAndHolidays())
-                                database.classSessionDao().insertSessions(InitialData.getDummySessions())
-                            }
-                        }
-                    }
-                })
+                .addMigrations(MIGRATION_7_8)
                 .build()
                 INSTANCE = instance
                 instance

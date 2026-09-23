@@ -1,97 +1,28 @@
 package acn.amrita.chen.planner
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import acn.amrita.chen.planner.ui.AppNavigation
-import acn.amrita.chen.planner.ui.MainViewModel
-import acn.amrita.chen.planner.ui.AddEventDialog
-import acn.amrita.chen.planner.ui.theme.AmritaCalendar2627Theme
-import acn.amrita.chen.planner.worker.NotificationBriefingWorker
-import android.Manifest
-import android.content.pm.PackageManager
-import android.os.Build
-import androidx.activity.result.contract.ActivityResultContracts
-import androidx.core.content.ContextCompat
-import androidx.work.PeriodicWorkRequestBuilder
-import androidx.work.WorkManager
-import java.util.concurrent.TimeUnit
+import acn.amrita.chen.planner.workspace.SharedImports
+import acn.amrita.chen.planner.workspace.WorkspaceApp
 
-class MainActivity : ComponentActivity() {
-    private val viewModel: MainViewModel by viewModels()
-
-    private val requestPermissionLauncher = registerForActivityResult(
-        ActivityResultContracts.RequestPermission()
-    ) { isGranted: Boolean ->
-        if (isGranted) {
-            setupDailyBriefingWorker()
-        }
+class MainActivity:ComponentActivity() {
+    override fun onCreate(savedInstanceState:Bundle?) {
+        super.onCreate(savedInstanceState);enableEdgeToEdge()
+        androidx.work.WorkManager.getInstance(this).cancelUniqueWork("AumsSyncWorker")
+        androidx.work.WorkManager.getInstance(this).cancelUniqueWork("DailyBriefing")
+        acceptShare(intent)
+        setContent { WorkspaceApp() }
     }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        
-        checkNotificationPermission()
-        
-        setContent {
-            val themeConfig by viewModel.appPreferences.themeConfig.collectAsState()
-
-            AmritaCalendar2627Theme(themeConfig = themeConfig) {
-                val showAddDialog by viewModel.showAddEventDialog.collectAsState()
-                val selectedDate by viewModel.selectedDate.collectAsState()
-
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    AppNavigation(viewModel = viewModel)
-
-                    if (showAddDialog) {
-                        AddEventDialog(
-                            selectedDate = selectedDate,
-                            onDismiss = { viewModel.hideAddEventDialog() },
-                            onAdd = { title, type, timeString, notes, reminderType ->
-                                viewModel.addEvent(title, selectedDate, type, timeString, notes, reminderType)
-                                viewModel.hideAddEventDialog()
-                            }
-                        )
-                    }
-                }
-            }
+    override fun onNewIntent(intent:Intent){super.onNewIntent(intent);setIntent(intent);acceptShare(intent)}
+    @Suppress("DEPRECATION") private fun acceptShare(intent:Intent) {
+        if(intent.action==Intent.ACTION_SEND || intent.action==Intent.ACTION_SEND_MULTIPLE) {
+            SharedImports.text.value=intent.getStringExtra(Intent.EXTRA_TEXT).orEmpty()
+            SharedImports.uris.value=if(intent.action==Intent.ACTION_SEND_MULTIPLE)intent.getParcelableArrayListExtra<Uri>(Intent.EXTRA_STREAM)?.toList().orEmpty().take(5)
+                else listOfNotNull(intent.getParcelableExtra<Uri>(Intent.EXTRA_STREAM))
         }
-    }
-
-    private fun checkNotificationPermission() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            if (ContextCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) ==
-                PackageManager.PERMISSION_GRANTED
-            ) {
-                setupDailyBriefingWorker()
-            } else {
-                requestPermissionLauncher.launch(Manifest.permission.POST_NOTIFICATIONS)
-            }
-        } else {
-            setupDailyBriefingWorker()
-        }
-    }
-
-    private fun setupDailyBriefingWorker() {
-        val workRequest = PeriodicWorkRequestBuilder<NotificationBriefingWorker>(24, TimeUnit.HOURS)
-            .build()
-        
-        WorkManager.getInstance(this).enqueueUniquePeriodicWork(
-            "DailyBriefing",
-            androidx.work.ExistingPeriodicWorkPolicy.KEEP,
-            workRequest
-        )
     }
 }

@@ -1,0 +1,29 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function verified() { return request.auth != null && request.auth.token.email_verified == true; }
+    function approved(group) { return verified() && firestore.get(/databases/(default)/documents/groups/$(group)/members/$(request.auth.uid)).data.status == 'approved'; }
+    function valid() {
+      return request.resource.size > 0 && request.resource.size <= 25 * 1024 * 1024 &&
+        request.resource.contentType in ['application/pdf','image/jpeg','image/png','image/webp','text/plain'] &&
+        (!firestore.exists(/databases/(default)/documents/configuration/pilot) || !('uploadsEnabled' in firestore.get(/databases/(default)/documents/configuration/pilot).data) || firestore.get(/databases/(default)/documents/configuration/pilot).data.uploadsEnabled == true);
+    }
+    function ticket(file, group) {
+      let reservation = firestore.get(/databases/(default)/documents/uploadTickets/$(file)).data;
+      return reservation.owner == request.auth.uid && reservation.groupId == group && reservation.size == request.resource.size && reservation.mime == request.resource.contentType && reservation.expiresAt > request.time;
+    }
+    match /users/{user}/uploads/{uploader}/{file} {
+      allow read: if verified() && request.auth.uid == user;
+      allow create: if verified() && request.auth.uid == user && uploader == user && valid() && ticket(file, '');
+      allow delete: if verified() && request.auth.uid == user;
+      allow update: if false;
+    }
+    match /groups/{group}/uploads/{uploader}/{file} {
+      allow read: if approved(group);
+      allow create: if approved(group) && request.auth.uid == uploader && valid() && ticket(file, group);
+      allow delete: if false;
+      allow update: if false;
+    }
+    match /{path=**} { allow read, write: if false; }
+  }
+}

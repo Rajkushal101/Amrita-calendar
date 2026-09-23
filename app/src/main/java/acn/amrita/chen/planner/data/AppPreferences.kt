@@ -7,8 +7,8 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 
 data class ThemeConfig(
-    val primaryColorHex: String = "#C62828", // AcnRed
-    val isDarkMode: Boolean = true
+    val primaryColorHex: String = "#BF0C4E",
+    val isDarkMode: Boolean = false
 )
 
 class AppPreferences(context: Context) {
@@ -16,8 +16,8 @@ class AppPreferences(context: Context) {
 
     private val _themeConfig = MutableStateFlow(
         ThemeConfig(
-            primaryColorHex = prefs.getString("primary_color_hex", "#C62828") ?: "#C62828",
-            isDarkMode = prefs.getBoolean("is_dark_mode", true)
+            primaryColorHex = prefs.getString("primary_color_hex", "#BF0C4E") ?: "#BF0C4E",
+            isDarkMode = prefs.getBoolean("is_dark_mode", false)
         )
     )
     val themeConfig: StateFlow<ThemeConfig> = _themeConfig.asStateFlow()

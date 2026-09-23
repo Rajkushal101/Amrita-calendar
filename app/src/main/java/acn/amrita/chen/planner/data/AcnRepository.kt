@@ -104,92 +104,11 @@ class AcnRepository(private val db: AppDatabase) {
         }
         classSessionDao.insertSessions(newSessions)
 
-        // Push to Firestore to ensure persistence across restarts (in background)
-        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-            try {
-                val snapshot = firestore.collection("class_sessions").get().await()
-                val batch = firestore.batch()
-                snapshot.documents.forEach { doc ->
-                    batch.delete(doc.reference)
-                }
-                newSessions.forEach { session ->
-                    val ref = firestore.collection("class_sessions").document()
-                    batch.set(ref, session.copy(firestoreId = ref.id))
-                }
-                batch.commit().await()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
     }
 
-    fun startClassSessionsSync() {
-        classSessionsListener?.remove()
-        classSessionsListener = firestore.collection("class_sessions")
-            .addSnapshotListener { snapshot, e ->
-                // #region agent log
-                acn.amrita.chen.planner.debug.DebugAgentLog.log(
-                    "AcnRepository.kt:startClassSessionsSync",
-                    "Firestore class_sessions snapshot",
-                    "B",
-                    mapOf(
-                        "error" to (e?.message),
-                        "snapshotNull" to (snapshot == null),
-                        "docCount" to (snapshot?.size() ?: -1)
-                    )
-                )
-                // #endregion
-                if (e != null || snapshot == null) return@addSnapshotListener
-                
-                val sessionsList = snapshot.documents.mapNotNull { doc ->
-                    try {
-                        val subjectId = doc.getLong("subjectId")?.toInt() ?: return@mapNotNull null
-                        val facultyId = doc.getString("facultyId") ?: ""
-                        val room = doc.getString("room") ?: ""
-                        val dayOfWeek = doc.getLong("dayOfWeek")?.toInt() ?: 1
-                        val startTimeMinutes = doc.getLong("startTimeMinutes")?.toInt() ?: 0
-                        val endTimeMinutes = doc.getLong("endTimeMinutes")?.toInt() ?: 0
-                        val section = doc.getString("section") ?: ""
-                        val semester = doc.getLong("semester")?.toInt() ?: 1
-                        val batch = doc.getString("batch") ?: ""
-                        val statusString = doc.getString("status") ?: "SCHEDULED"
-                        val status = try { SessionStatus.valueOf(statusString) } catch (e: Exception) { SessionStatus.SCHEDULED }
-                        val cancelledBy = doc.getString("cancelledBy")
-                        val cancelledAt = doc.getLong("cancelledAt")
-                        val overrideRoom = doc.getString("overrideRoom")
-                        
-                        ClassSession(
-                            subjectId = subjectId,
-                            facultyId = facultyId,
-                            room = room,
-                            dayOfWeek = dayOfWeek,
-                            startTimeMinutes = startTimeMinutes,
-                            endTimeMinutes = endTimeMinutes,
-                            section = section,
-                            semester = semester,
-                            batch = batch,
-                            status = status,
-                            cancelledBy = cancelledBy,
-                            cancelledAt = cancelledAt,
-                            overrideRoom = overrideRoom,
-                            firestoreId = doc.id
-                        )
-                    } catch (e: Exception) {
-                        null
-                    }
-                }
-                
-                kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-                    classSessionDao.deleteAllSessions()
-                    classSessionDao.insertSessions(sessionsList)
-                }
-            }
-    }
-
-    fun stopClassSessionsSync() {
-        classSessionsListener?.remove()
-        classSessionsListener = null
-    }
+    // Legacy collections have no cohort ownership; never synchronize them into personal data.
+    fun startClassSessionsSync() = Unit
+    fun stopClassSessionsSync() = Unit
 
     // ── Attendance ──────────────────────────────────────────────
 
@@ -368,85 +287,14 @@ class AcnRepository(private val db: AppDatabase) {
     fun getAllAnnouncements(): Flow<List<Announcement>> = announcementDao.getAllAnnouncements()
 
     suspend fun addAnnouncement(announcement: Announcement) {
-        val id = announcementDao.insertAnnouncement(announcement)
-        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-            try {
-                val ref = firestore.collection("announcements").document()
-                ref.set(announcement.copy(id = id.toInt(), firestoreId = ref.id)).await()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
+        announcementDao.insertAnnouncement(announcement)
     }
-        
     suspend fun deleteAllAnnouncements() {
+        // This legacy action only clears the local notice cache, never shared documents.
         announcementDao.deleteAllAnnouncements()
-        kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-            try {
-                val snapshot = firestore.collection("announcements").get().await()
-                val batch = firestore.batch()
-                snapshot.documents.forEach { doc ->
-                    batch.delete(doc.reference)
-                }
-                batch.commit().await()
-            } catch (e: Exception) {
-                e.printStackTrace()
-            }
-        }
     }
-        
-    fun startAnnouncementsSync() {
-        announcementsListener?.remove()
-        announcementsListener = firestore.collection("announcements")
-            .addSnapshotListener { snapshot, e ->
-                if (e != null || snapshot == null) return@addSnapshotListener
-                
-                val announcementsList = snapshot.documents.mapNotNull { doc ->
-                    try {
-                        val title = doc.getString("title") ?: return@mapNotNull null
-                        val body = doc.getString("body") ?: ""
-                        val authorName = doc.getString("authorName") ?: "Admin"
-                        val postedAtMillis = doc.getLong("postedAtMillis") ?: System.currentTimeMillis()
-                        val isPinned = doc.getBoolean("isPinned") ?: false
-                        val urgencyLevel = doc.getString("urgencyLevel") ?: "normal"
-                        val targetAudience = doc.getString("targetAudience") ?: "ALL"
-                        val priorityString = doc.getString("priority") ?: "NORMAL"
-                        val priority = try { AnnouncementPriority.valueOf(priorityString) } catch (e: Exception) { AnnouncementPriority.NORMAL }
-                        val expiresAt = doc.getLong("expiresAt")
-                        val authorRole = doc.getString("authorRole") ?: "FACULTY"
-                        
-                        Announcement(
-                            title = title,
-                            body = body,
-                            authorName = authorName,
-                            postedAtMillis = postedAtMillis,
-                            isPinned = isPinned,
-                            urgencyLevel = urgencyLevel,
-                            targetAudience = targetAudience,
-                            priority = priority,
-                            expiresAt = expiresAt,
-                            authorRole = authorRole,
-                            firestoreId = doc.id
-                        )
-                    } catch (e: Exception) {
-                        null
-                    }
-                }
-                
-                // Launch coroutine in a background thread to update Room
-                kotlinx.coroutines.CoroutineScope(kotlinx.coroutines.Dispatchers.IO).launch {
-                    // To avoid duplicates, we can clear and insert, or use upsert if we implement it.
-                    // For now, we clear the existing firestore ones and insert new ones
-                    announcementDao.deleteAllAnnouncements()
-                    announcementDao.insertAnnouncements(announcementsList)
-                }
-            }
-    }
-
-    fun stopAnnouncementsSync() {
-        announcementsListener?.remove()
-        announcementsListener = null
-    }
+    fun startAnnouncementsSync() = Unit
+    fun stopAnnouncementsSync() = Unit
 
     // ── Semester Progress ───────────────────────────────────────
 
@@ -519,7 +367,7 @@ class AcnRepository(private val db: AppDatabase) {
     }
 
     suspend fun getAllSessionsSynchronously(): List<ClassSession> = classSessionDao.getAllSessions().first()
-    suspend fun updateSession(session: ClassSession) = classSessionDao.updateSession(session)
+    suspend fun updateSession(session: ClassSession) = classSessionDao.insertSession(session)
     suspend fun deleteSession(id: Int) = classSessionDao.deleteSession(id)
     
     suspend fun getAllEventsSynchronously(): List<Event> = eventDao.getAllEvents().first()

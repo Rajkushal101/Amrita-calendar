@@ -34,28 +34,8 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
     private val auth = FirebaseAuth.getInstance()
 
     init {
-        repository.startAnnouncementsSync()
-        repository.startClassSessionsSync()
-        
-        // Ensure user is authenticated anonymously
-        if (auth.currentUser == null) {
-            auth.signInAnonymously().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    val uid = auth.currentUser?.uid ?: ""
-                    syncUserProfileToFirestore(uid)
-                }
-            }
-        }
-        
-        // Schedule Background Sync
-        val syncWorkRequest = androidx.work.PeriodicWorkRequestBuilder<acn.amrita.chen.planner.worker.AumsSyncWorker>(
-            15, java.util.concurrent.TimeUnit.MINUTES
-        ).build()
-        androidx.work.WorkManager.getInstance(application).enqueueUniquePeriodicWork(
-            "AumsSyncWorker",
-            androidx.work.ExistingPeriodicWorkPolicy.KEEP,
-            syncWorkRequest
-        )
+        // Legacy global collections are intentionally quarantined. New group data is scoped.
+        androidx.work.WorkManager.getInstance(application).cancelUniqueWork("AumsSyncWorker")
     }
 
     override fun onCleared() {
@@ -154,13 +134,7 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
             .sortedBy { it.currentPercentage }
     }.stateIn(viewModelScope, SharingStarted.WhileSubscribed(5000), emptyList())
 
-    val recentChanges: StateFlow<List<CampusChange>> = MutableStateFlow(
-        listOf(
-            CampusChange(ChangeType.CLASS_CANCELLED, "CYS 10AM class cancelled", System.currentTimeMillis() - 3600000),
-            CampusChange(ChangeType.ASSIGNMENT_DEADLINE_CHANGED, "AI assignment deadline moved to Sunday", System.currentTimeMillis() - 86400000),
-            CampusChange(ChangeType.NEW_ANNOUNCEMENT, "1 new faculty announcement", System.currentTimeMillis() - 7200000)
-        )
-    ).asStateFlow()
+    val recentChanges: StateFlow<List<CampusChange>> = MutableStateFlow(emptyList())
 
     fun updateAssignmentStatus(assignmentId: Int, status: acn.amrita.chen.planner.data.AssignmentStatus) {
         viewModelScope.launch {
